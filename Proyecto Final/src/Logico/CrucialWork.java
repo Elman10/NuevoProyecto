@@ -50,5 +50,14 @@ public class CrucialWork {
 		e.add(empresa);
 		cont_e++;
 	}
-		
+	
+	public int buscarPersona(String cedula) {
+		int pos = 0;
+		//for (Persona persona : p) {
+			pos = p.indexOf(cedula);
+		//}
+		return pos;
+	}
+	
+	
 }
