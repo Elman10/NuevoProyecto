@@ -2,27 +2,27 @@ package Logico;
 
 public class SolicitudDeEmpresa {
 	
-	private String Id;
+	private String id;
 	private Empresa empresa;
-	private String TipoDeEmpleado;
-	private int Cantidad;
-	private float SalarioMinimo;
-	private boolean Estado;	
-	public SolicitudDeEmpresa(String id, Empresa empresa, String tipoDeEmpleado, int cantidad, float salarioMinimo,
+	private String tipo_empleado;
+	private int cantidad;
+	private float salarioMinimo;
+	private boolean estado;	
+	public SolicitudDeEmpresa(String id, Empresa empresa, String tipo_empleado, int cantidad, float salarioMinimo,
 			boolean estado) {
 		super();
-		Id = id;
+		this.id = id;
 		this.empresa = empresa;
-		TipoDeEmpleado = tipoDeEmpleado;
-		Cantidad = cantidad;
-		SalarioMinimo = salarioMinimo;
-		Estado = estado;
+		this.tipo_empleado = tipo_empleado;
+		this.cantidad = cantidad;
+		this.salarioMinimo = salarioMinimo;
+		this.estado = estado;
 	}
 	public String getId() {
-		return Id;
+		return id;
 	}
 	public void setId(String id) {
-		Id = id;
+		this.id = id;
 	}
 	public Empresa getEmpresa() {
 		return empresa;
@@ -31,28 +31,28 @@ public class SolicitudDeEmpresa {
 		this.empresa = empresa;
 	}
 	public String getTipoDeEmpleado() {
-		return TipoDeEmpleado;
+		return tipo_empleado;
 	}
-	public void setTipoDeEmpleado(String tipoDeEmpleado) {
-		TipoDeEmpleado = tipoDeEmpleado;
+	public void setTipoDeEmpleado(String tipo_empleado) {
+		this.tipo_empleado = tipo_empleado;
 	}
 	public int getCantidad() {
-		return Cantidad;
+		return cantidad;
 	}
 	public void setCantidad(int cantidad) {
-		Cantidad = cantidad;
+		this.cantidad = cantidad;
 	}
 	public float getSalarioMinimo() {
-		return SalarioMinimo;
+		return salarioMinimo;
 	}
 	public void setSalarioMinimo(float salarioMinimo) {
-		SalarioMinimo = salarioMinimo;
+		this.salarioMinimo = salarioMinimo;
 	}
 	public boolean isEstado() {
-		return Estado;
+		return estado;
 	}
 	public void setEstado(boolean estado) {
-		Estado = estado;
+		this.estado = estado;
 	}
 	
 	

@@ -2,38 +2,38 @@ package Logico;
 
 public class SolicitudEmpleo {
 	
-	private String Cedula;
-	private float SalarioMinimo;
+	private String cedula;
+	private float salarioMinimo;
 	private Persona persona;
-	private boolean Estado;
+	private boolean estado;
 	
 	
 	public SolicitudEmpleo(String cedula, float salarioMinimo, Persona persona, boolean estado) {
 		super();
-		Cedula = cedula;
-		SalarioMinimo = salarioMinimo;
+		this.cedula = cedula;
+		this.salarioMinimo = salarioMinimo;
 		this.persona = persona;
-		Estado = estado;
+		this.estado = estado;
 	}
 
 
 	public String getId() {
-		return Cedula;
+		return cedula;
 	}
 
 
 	public void setId(String cedula) {
-		Cedula = cedula;
+		this.cedula = cedula;
 	}
 
 
 	public float getSalarioMinimo() {
-		return SalarioMinimo;
+		return salarioMinimo;
 	}
 
 
 	public void setSalarioMinimo(float salarioMinimo) {
-		SalarioMinimo = salarioMinimo;
+		this.salarioMinimo = salarioMinimo;
 	}
 
 
@@ -48,12 +48,12 @@ public class SolicitudEmpleo {
 
 
 	public boolean isEstado() {
-		return Estado;
+		return estado;
 	}
 
 
 	public void setEstado(boolean estado) {
-		Estado = estado;
+		this.estado = estado;
 	}
 	
 	
