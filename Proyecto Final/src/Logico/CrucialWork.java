@@ -53,9 +53,7 @@ public class CrucialWork {
 	
 	public int buscarPersona(String cedula) {
 		int pos = 0;
-		//for (Persona persona : p) {
-			pos = p.indexOf(cedula);
-		//}
+		pos = p.indexOf(cedula);
 		return pos;
 	}
 	

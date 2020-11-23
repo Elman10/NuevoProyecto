@@ -8,9 +8,9 @@ public class Obrero extends Persona {
 	private String experiencia;
 	
 	public Obrero(String nombre, String apellido, String cedula, String pais, String telefono, String estadoC, String codigoz,
-			String genero, ArrayList<String> habilidades, String experiencia) {
+			String genero, String experiencia) {
 		super(nombre, apellido, cedula, pais, telefono, estadoC, codigoz, genero);
-		this.habilidades = habilidades;
+		this.habilidades = new ArrayList<>();
 		this.experiencia = experiencia;
 	}
 

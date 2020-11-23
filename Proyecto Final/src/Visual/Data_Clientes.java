@@ -25,6 +25,10 @@ import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+
+import Logico.CrucialWork;
+import Logico.Persona;
+
 import java.awt.Font;
 
 
@@ -53,6 +57,8 @@ public class Data_Clientes extends JDialog {
 	private JTextArea txtArea;
 	private JComboBox cbxCarrera;
 	private JComboBox cbxEstadoC;
+	public static Persona p = null;
+	public static CrucialWork c = null;
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -303,6 +309,11 @@ public class Data_Clientes extends JDialog {
 								if(txtArea.getText().isEmpty()) {
 									JOptionPane.showMessageDialog(null, "Faltan campos por completar.");
 								}
+							}else {
+								p =  new Logico.Obrero(txtNombre.getText(),txtApellido.getText(),txtCedula.getText(),
+										cbxPais.getSelectedItem().toString(),txtTelefono.getText(),cbxEstadoC.getSelectedItem().toString(),
+										txtCodigoZIP.getText(),cbxGenero.getSelectedItem().toString(),txtArea.getText());
+								
 							}
 							if(rdbtnUniversitario.isSelected()  || txtNombre.getText().isEmpty() || 
 									txtApellido.getText().isEmpty() ||  txtCedula.getText().isEmpty()  ||
@@ -349,6 +360,10 @@ public class Data_Clientes extends JDialog {
 								}
 							}
 						}
+						CrucialWork.getInstance().insertPerson(p);
+						Menu_Persona m = new Menu_Persona();
+						m.setVisible(true);
+						dispose();
 						
 					}
 				});
