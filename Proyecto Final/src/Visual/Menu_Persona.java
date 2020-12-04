@@ -34,7 +34,7 @@ public class Menu_Persona extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Menu_Persona() {
+	public Menu_Persona(String cedula) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 880, 610);
 		setLocationRelativeTo(null);
