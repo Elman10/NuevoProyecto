@@ -28,6 +28,7 @@ import javax.swing.border.TitledBorder;
 
 import Logico.CrucialWork;
 import Logico.Persona;
+import Logico.Universitario;
 
 import java.awt.Font;
 
@@ -310,9 +311,9 @@ public class Data_Clientes extends JDialog {
 									JOptionPane.showMessageDialog(null, "Faltan campos por completar.");
 								}
 							}else {
-								p =  new Logico.Obrero(txtNombre.getText(),txtApellido.getText(),txtCedula.getText(),
+								p =  new Universitario(txtNombre.getText(),txtApellido.getText(),txtCedula.getText(),
 										cbxPais.getSelectedItem().toString(),txtTelefono.getText(),cbxEstadoC.getSelectedItem().toString(),
-										txtCodigoZIP.getText(),cbxGenero.getSelectedItem().toString(),txtArea.getText());
+										txtCodigoZIP.getText(),cbxGenero.getSelectedItem().toString(),null, "Ing. Sistema");
 								
 							}
 							if(rdbtnUniversitario.isSelected()  || txtNombre.getText().isEmpty() || 
@@ -361,9 +362,9 @@ public class Data_Clientes extends JDialog {
 							}
 						}
 						CrucialWork.getInstance().insertPerson(p);
-						Menu_Persona m = new Menu_Persona();
-						m.setVisible(true);
-						dispose();
+						//Menu_Persona m = new Menu_Persona();
+						//m.setVisible(true);
+						//dispose();
 						
 					}
 				});

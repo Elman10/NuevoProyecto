@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.border.TitledBorder;
 
 import Logico.CrucialWork;
+import Logico.Persona;
 
 import javax.swing.UIManager;
 import javax.swing.JTextField;
@@ -24,7 +25,7 @@ public class Menu_Persona extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private int i = 0;
-
+	//String[] aux = new String[CrucialWork.getInstance().getP().size()]();
 	/**
 	 * Launch the application.
 	 */
@@ -66,7 +67,7 @@ public class Menu_Persona extends JFrame {
 		panel.add(lblMiniLogo_1);
 		
 		txtNombre = new JTextField();
-		//txtNombre.setText(CrucialWork.getInstance());
+		//txtNombre.setText(""+CrucialWork.getInstance().getP().get(i).getNombre());
 		txtNombre.setBackground(Color.WHITE);
 		txtNombre.setEditable(false);
 		txtNombre.setBounds(512, 26, 249, 25);

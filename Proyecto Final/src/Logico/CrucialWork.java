@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class CrucialWork {
 	
-	ArrayList<Persona>p;
-	ArrayList<Empresa>e;
-	public static CrucialWork c;
+	private ArrayList<Persona>p;
+	private ArrayList<Empresa>e;
+	public static CrucialWork c = new CrucialWork();
 	public static int cont_p = 0;
 	public static int cont_e = 0;
 	
@@ -15,7 +15,6 @@ public class CrucialWork {
 		this.p = new ArrayList<>();
 		this.e = new ArrayList<>();
 	}
-	
 	
 	public ArrayList<Persona> getP() {
 		return p;
@@ -32,30 +31,36 @@ public class CrucialWork {
 		this.e = e;
 	}
 
+
 	public static CrucialWork getInstance(){
-		
-		if(c == null) {
-			c = new CrucialWork();
-		}
-		
-		return c;
+			return c;
 	}
 	
 	public void insertPerson(Persona persona) {
 		p.add(persona);
-		cont_p++;
 	}
-	
 	public void insertEmpresa(Empresa empresa) {
 		e.add(empresa);
-		cont_e++;
+	}
+	public boolean eliminarPerson(Persona person) {
+		return p.remove(person);
+	}
+	public boolean eliminarEmpresa(Empresa empresa) {
+		return e.remove(empresa);
 	}
 	
-	public int buscarPersona(String cedula) {
-		int pos = 0;
-		pos = p.indexOf(cedula);
-		return pos;
+	public Persona buscarPersona(String cedula) {
+		for(Persona person : p) {
+			if(person != null) {
+				if(person.getCedula().equalsIgnoreCase(cedula)) { 
+					return person;
+				}
+			}
+		}
+		return null;
 	}
+	
+	
 	
 	
 }
