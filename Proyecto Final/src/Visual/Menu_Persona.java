@@ -19,6 +19,12 @@ import Logico.Persona;
 
 import javax.swing.UIManager;
 import javax.swing.JTextField;
+import java.awt.Font;
+import java.util.ArrayList;
+
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class Menu_Persona extends JFrame {
 
@@ -26,6 +32,7 @@ public class Menu_Persona extends JFrame {
 	private JTextField txtNombre;
 	private int i = 0;
 	private JTextField txtCedula;
+	private JList listHabilidades;
 	
 	/**
 	 * Launch the application.
@@ -35,7 +42,7 @@ public class Menu_Persona extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Menu_Persona(String cedula) {
+	public Menu_Persona(String cedula, ArrayList<String> aux) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 880, 610);
 		setLocationRelativeTo(null);
@@ -64,10 +71,12 @@ public class Menu_Persona extends JFrame {
 		
 		JLabel lblMiniLogo_1 = new JLabel("");
 		lblMiniLogo_1.setIcon(new ImageIcon(Menu_Persona.class.getResource("/Img/MiniLogo.png")));
-		lblMiniLogo_1.setBounds(12, 13, 50, 50);
+		lblMiniLogo_1.setBounds(12, 13, 50, 70);
 		panel.add(lblMiniLogo_1);
 		
 		txtNombre = new JTextField();
+		txtNombre.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtNombre.setEditable(false);
 		//txtNombre.setText(""+CrucialWork.getInstance().getP().get(i).getNombre());
 		txtNombre.setBackground(Color.WHITE);
@@ -76,17 +85,37 @@ public class Menu_Persona extends JFrame {
 		txtNombre.setColumns(10);
 		
 		txtCedula = new JTextField();
+		txtCedula.setHorizontalAlignment(SwingConstants.RIGHT);
 		txtCedula.setBackground(Color.WHITE);
 		txtCedula.setEditable(false);
 		txtCedula.setBounds(648, 76, 116, 22);
 		panel.add(txtCedula);
 		txtCedula.setColumns(10);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(51, 316, 223, 106);
+		panel.add(scrollPane);
+		
+		listHabilidades = new JList();
+		scrollPane.setViewportView(listHabilidades);
+		
+		JLabel lblHabilidades = new JLabel("Habilidades:");
+		lblHabilidades.setBounds(53, 287, 78, 16);
+		panel.add(lblHabilidades);
+		
+		JLabel lblDatos = new JLabel("Datos Personales");
+		lblDatos.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblDatos.setBounds(86, 13, 269, 70);
+		panel.add(lblDatos);
+		
 		CrucialWork.getInstance().buscarPersona(cedula);
 		for(Persona p : CrucialWork.getInstance().getP()) {
 			txtNombre.setText(""+p.getNombre()+" "+p.getApellido());
 			txtCedula.setText(p.getCedula());
 		}
+		
+		listHabilidades.setListData(aux.toArray());
 		
 	}
 }

@@ -15,7 +15,7 @@ public abstract class Persona {
 	public Persona(String nombre, String apellido, String cedula, String pais, String telefono, String estadoC,
 			String codigoz, String genero, String password) {
 		super();
-		this.nombre = "Eliam";
+		this.nombre = nombre;
 		this.apellido = apellido;
 		this.cedula = cedula;
 		this.pais = pais;
