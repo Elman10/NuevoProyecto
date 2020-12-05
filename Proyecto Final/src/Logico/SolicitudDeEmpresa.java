@@ -8,11 +8,11 @@ public class SolicitudDeEmpresa {
 	private int cantidad;
 	private float salarioMinimo;
 	private boolean estado;	
-	public SolicitudDeEmpresa(String id, Empresa empresa, String tipo_empleado, int cantidad, float salarioMinimo,
+	public SolicitudDeEmpresa(String id, String tipo_empleado, int cantidad, float salarioMinimo,
 			boolean estado) {
 		super();
 		this.id = id;
-		this.empresa = empresa;
+		//this.empresa = empresa;
 		this.tipo_empleado = tipo_empleado;
 		this.cantidad = cantidad;
 		this.salarioMinimo = salarioMinimo;
