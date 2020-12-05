@@ -25,7 +25,8 @@ public class Menu_Persona extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtNombre;
 	private int i = 0;
-	//String[] aux = new String[CrucialWork.getInstance().getP().size()]();
+	private JTextField txtCedula;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -67,12 +68,25 @@ public class Menu_Persona extends JFrame {
 		panel.add(lblMiniLogo_1);
 		
 		txtNombre = new JTextField();
+		txtNombre.setEditable(false);
 		//txtNombre.setText(""+CrucialWork.getInstance().getP().get(i).getNombre());
 		txtNombre.setBackground(Color.WHITE);
-		txtNombre.setEditable(false);
-		txtNombre.setBounds(512, 26, 249, 25);
+		txtNombre.setBounds(515, 38, 249, 25);
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
+		
+		txtCedula = new JTextField();
+		txtCedula.setBackground(Color.WHITE);
+		txtCedula.setEditable(false);
+		txtCedula.setBounds(648, 76, 116, 22);
+		panel.add(txtCedula);
+		txtCedula.setColumns(10);
+		
+		CrucialWork.getInstance().buscarPersona(cedula);
+		for(Persona p : CrucialWork.getInstance().getP()) {
+			txtNombre.setText(""+p.getNombre()+" "+p.getApellido());
+			txtCedula.setText(p.getCedula());
+		}
 		
 	}
 }

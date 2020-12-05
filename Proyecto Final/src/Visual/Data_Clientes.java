@@ -302,6 +302,9 @@ public class Data_Clientes extends JDialog {
 									txtCodigoZIP.getText(), cbxGenero.getSelectedItem().toString(), txtCedula.getText(), aux, txtArea.getText());
 						}
 						CrucialWork.getInstance().insertPerson(person);
+						Menu_Persona main = new Menu_Persona(txtCedula.getText());
+						main.setVisible(true);
+						dispose();
 						/*if(cbxGenero.getSelectedItem().toString().equalsIgnoreCase("Otros...")) {
 							
 							if(rdbtnObrero.isSelected() || txtNombre.getText().isEmpty() || 

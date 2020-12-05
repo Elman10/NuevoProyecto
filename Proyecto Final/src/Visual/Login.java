@@ -8,7 +8,13 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+
+import Logico.CrucialWork;
+import Logico.Persona;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.Color;
@@ -20,8 +26,8 @@ import javax.swing.JRadioButton;
 public class Login extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtCedula;
+	private JTextField txtContrasegna;
 	private JTextField txtRNC;
 	private JTextField txtContra;
 	private JPanel Empresa;
@@ -59,20 +65,20 @@ public class Login extends JDialog {
 			lblCedula.setBounds(59, 68, 88, 26);
 			Cliente.add(lblCedula);
 			
-			textField = new JTextField();
-			textField.setBounds(196, 68, 183, 26);
-			Cliente.add(textField);
-			textField.setColumns(10);
+			txtCedula = new JTextField();
+			txtCedula.setBounds(196, 68, 183, 26);
+			Cliente.add(txtCedula);
+			txtCedula.setColumns(10);
 			
 			JLabel lblContrasea = new JLabel("Contraseña:");
 			lblContrasea.setFont(new Font("Arial Black", Font.ITALIC, 18));
 			lblContrasea.setBounds(59, 118, 125, 26);
 			Cliente.add(lblContrasea);
 			
-			textField_1 = new JTextField();
-			textField_1.setColumns(10);
-			textField_1.setBounds(196, 118, 183, 26);
-			Cliente.add(textField_1);
+			txtContrasegna = new JTextField();
+			txtContrasegna.setColumns(10);
+			txtContrasegna.setBounds(196, 118, 183, 26);
+			Cliente.add(txtContrasegna);
 			
 			JLabel lblAviso = new JLabel("**la contraseña es la cedula");
 			lblAviso.setForeground(Color.RED);
@@ -142,6 +148,23 @@ public class Login extends JDialog {
 		Empresa.add(lblAvisso);
 		
 		JButton btnLogin = new JButton("Iniciar Sesión");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(CrucialWork.getInstance().buscarPersona(txtCedula.getText()) != null){
+			for(Persona p : CrucialWork.getInstance().getP()) {
+				if(p.getCedula().equals(txtCedula.getText())) {
+					if(p.getCedula().equals(txtContrasegna.getText())) {
+						
+					}else {
+						JOptionPane.showMessageDialog(null, "Cédula o contraseña incorrecta.", "Error al iniciar sesión.", JOptionPane.ERROR_MESSAGE);
+					}
+				}else {
+					JOptionPane.showMessageDialog(null, "Cédula o contraseña incorrecta.", "Error al iniciar sesión.", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		}
+			}
+		});
 		btnLogin.setBackground(SystemColor.menu);
 		btnLogin.setBounds(170, 293, 169, 25);
 		contentPanel.add(btnLogin);
