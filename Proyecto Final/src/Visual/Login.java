@@ -73,6 +73,13 @@ public class Login extends JDialog {
 			textField_1.setColumns(10);
 			textField_1.setBounds(196, 118, 183, 26);
 			Cliente.add(textField_1);
+			
+			JLabel lblAviso = new JLabel("**la contraseña es la cedula");
+			lblAviso.setForeground(Color.RED);
+			lblAviso.setBackground(Color.RED);
+			lblAviso.setFont(new Font("Tahoma", Font.PLAIN, 9));
+			lblAviso.setBounds(179, 168, 125, 16);
+			Cliente.add(lblAviso);
 		}
 		
 		rdbtnPersona = new JRadioButton("Persona");
@@ -128,6 +135,11 @@ public class Login extends JDialog {
 		txtContra.setBounds(196, 118, 183, 26);
 		Empresa.add(txtContra);
 		txtContra.setColumns(10);
+		
+		JLabel lblAvisso = new JLabel("**la contraseña es el RNC");
+		lblAvisso.setForeground(Color.RED);
+		lblAvisso.setBounds(179, 168, 125, 16);
+		Empresa.add(lblAvisso);
 		
 		JButton btnLogin = new JButton("Iniciar Sesión");
 		btnLogin.setBackground(SystemColor.menu);

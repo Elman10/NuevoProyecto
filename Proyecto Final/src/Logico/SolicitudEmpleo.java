@@ -6,14 +6,16 @@ public class SolicitudEmpleo {
 	private float salarioMinimo;
 	private Persona persona;
 	private boolean estado;
+	private boolean dispViaje;
 	
 	
-	public SolicitudEmpleo(String cedula, float salarioMinimo, Persona persona, boolean estado) {
+	public SolicitudEmpleo(String cedula, float salarioMinimo, boolean estado, boolean dispViaje) {
 		super();
 		this.cedula = cedula;
 		this.salarioMinimo = salarioMinimo;
-		this.persona = persona;
+		//this.persona = persona;
 		this.estado = estado;
+		this.dispViaje = dispViaje;
 	}
 
 
@@ -54,6 +56,14 @@ public class SolicitudEmpleo {
 
 	public void setEstado(boolean estado) {
 		this.estado = estado;
+	}
+	
+	public boolean isDispViaje() {
+		return dispViaje;
+	}
+	
+	public void setDispViaje(boolean dispViaje) {
+		this.dispViaje = dispViaje;
 	}
 	
 	

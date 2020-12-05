@@ -9,10 +9,11 @@ public abstract class Persona {
 	protected String estadoC;
 	protected String codigoz;
 	protected String genero;
+	protected String password;
 	
 
 	public Persona(String nombre, String apellido, String cedula, String pais, String telefono, String estadoC,
-			String codigoz, String genero) {
+			String codigoz, String genero, String password) {
 		super();
 		this.nombre = "Eliam";
 		this.apellido = apellido;
@@ -22,7 +23,22 @@ public abstract class Persona {
 		this.estadoC = estadoC;
 		this.codigoz = codigoz;
 		this.genero = genero;
+		this.password = password;
 	}
+	
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
 
 	public String getNombre() {
 		return nombre;

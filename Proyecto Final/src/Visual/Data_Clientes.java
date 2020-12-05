@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -27,6 +28,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
 import Logico.CrucialWork;
+import Logico.Obrer0;
 import Logico.Persona;
 import Logico.Universitario;
 
@@ -42,7 +44,6 @@ public class Data_Clientes extends JDialog {
 	private JTextField txtCodigoZIP;
 	private JTextField txtTelefono;
 	private JTextField txtHabilidades;
-	private JTextField txtOtros;
 	private JTextField txtIdioma;
 	private JTextField txtUniversidad;
 	private JTextField txtAreas;
@@ -60,6 +61,7 @@ public class Data_Clientes extends JDialog {
 	private JComboBox cbxEstadoC;
 	public static Persona p = null;
 	public static CrucialWork c = null;
+	private ArrayList<String> aux = new ArrayList<String>();
 
 	private final JPanel contentPanel = new JPanel();
 
@@ -173,16 +175,7 @@ public class Data_Clientes extends JDialog {
 				Recoger_Datos_Panel.add(lblGnero);
 				
 				cbxGenero = new JComboBox();
-				cbxGenero.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						if(cbxGenero.getSelectedItem().toString().equalsIgnoreCase("Otros...")) {
-							txtOtros.setVisible(true);
-						}else {
-							txtOtros.setVisible(false);
-						}
-					}
-				});
-				cbxGenero.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Hombre ", "Mujer", "Otros..."}));
+				cbxGenero.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Hombre ", "Mujer"}));
 				cbxGenero.setBounds(115, 154, 148, 22);
 				Recoger_Datos_Panel.add(cbxGenero);
 				
@@ -221,6 +214,7 @@ public class Data_Clientes extends JDialog {
 						rdbtnObrero.setSelected(false);
 						rdbtnUniversitario.setSelected(true);
 						rdbtnTecnico.setSelected(false);
+						txtUniversidad.setVisible(true);
 					}
 				});
 				rdbtnUniversitario.setBackground(Color.WHITE);
@@ -268,9 +262,10 @@ public class Data_Clientes extends JDialog {
 				txtHabilidades.setBounds(118, 40, 148, 22);
 				Obrero.add(txtHabilidades);
 				
-				JButton btnAgregar = new JButton("Añadir otra habilidad:");
+				JButton btnAgregar = new JButton("Añadir otra habilidad");
 				btnAgregar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						aux.add(txtHabilidades.getText());
 						txtHabilidades.setText("");
 					}
 				});
@@ -301,7 +296,13 @@ public class Data_Clientes extends JDialog {
 				JButton btnRegistrar = new JButton("Registrar");
 				btnRegistrar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(cbxGenero.getSelectedItem().toString().equalsIgnoreCase("Otros...")) {
+						Persona person = null;
+						if(rdbtnObrero.isSelected()) {
+							person = new Obrer0(txtNombre.getText(), txtApellido.getText(), txtCedula.getText(), cbxPais.getSelectedItem().toString(), txtTelefono.getText(), cbxEstadoC.getSelectedItem().toString(),
+									txtCodigoZIP.getText(), cbxGenero.getSelectedItem().toString(), txtCedula.getText(), aux, txtArea.getText());
+						}
+						CrucialWork.getInstance().insertPerson(person);
+						/*if(cbxGenero.getSelectedItem().toString().equalsIgnoreCase("Otros...")) {
 							
 							if(rdbtnObrero.isSelected() || txtNombre.getText().isEmpty() || 
 									txtApellido.getText().isEmpty() ||  txtCedula.getText().isEmpty()  ||
@@ -366,6 +367,7 @@ public class Data_Clientes extends JDialog {
 						//m.setVisible(true);
 						//dispose();
 						
+					}*/
 					}
 				});
 				btnRegistrar.setBackground(SystemColor.text);
@@ -399,6 +401,7 @@ public class Data_Clientes extends JDialog {
 				Universidad.add(lblUniversidad);
 				
 				txtUniversidad = new JTextField();
+				txtUniversidad.setVisible(false);
 				txtUniversidad.setBounds(118, 107, 148, 22);
 				Universidad.add(txtUniversidad);
 				txtUniversidad.setColumns(10);
@@ -417,15 +420,6 @@ public class Data_Clientes extends JDialog {
 				lblMiniLogo_1.setIcon(new ImageIcon(Data_Clientes.class.getResource("/Img/MiniLogo.png")));
 				lblMiniLogo_1.setBounds(602, 153, 50, 50);
 				Universidad.add(lblMiniLogo_1);
-				
-				txtOtros = new JTextField();
-				txtOtros.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent arg0) {
-						txtOtros.setText("");
-					}
-				});
-				txtOtros.setVisible(false);
 				
 				Tecnico = new JPanel();
 				Tecnico.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -456,10 +450,6 @@ public class Data_Clientes extends JDialog {
 				lblMiniLogo_Tecnico.setIcon(new ImageIcon(Data_Clientes.class.getResource("/Img/MiniLogo.png")));
 				lblMiniLogo_Tecnico.setBounds(602, 153, 50, 50);
 				Tecnico.add(lblMiniLogo_Tecnico);
-				txtOtros.setText("<Genero>");
-				txtOtros.setBounds(115, 182, 148, 22);
-				Recoger_Datos_Panel.add(txtOtros);
-				txtOtros.setColumns(10);
 				
 				JLabel lblAVISO = new JLabel("* llenar obligatorio");
 				lblAVISO.setForeground(new Color(255, 0, 0));

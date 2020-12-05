@@ -8,8 +8,8 @@ public class Tecnico extends Persona {
 	private String experiencia;
 	
 	public Tecnico(String nombre, String apellido, String cedula, String pais, String telefono, String estadoC,
-			String codigoz, String genero, ArrayList<String> area, String experiencia) {
-		super(nombre, apellido, cedula, pais, telefono, estadoC, codigoz, genero);
+			String codigoz, String genero, String password, ArrayList<String> area, String experiencia) {
+		super(nombre, apellido, cedula, pais, telefono, estadoC, codigoz, genero,password);
 		this.area = area;
 		this.experiencia = experiencia;
 	}

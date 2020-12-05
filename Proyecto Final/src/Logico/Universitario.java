@@ -9,8 +9,8 @@ public class Universitario extends Persona {
 	private String carrera;
 	
 	public Universitario(String nombre, String apellido, String cedula, String pais, String telefono, String estadoC, String codigoz,
-			String genero, String universidad, String carrera) {
-		super(nombre, apellido, cedula, pais, telefono, estadoC, codigoz, genero);
+			String genero, String password, String universidad, String carrera) {
+		super(nombre, apellido, cedula, pais, telefono, estadoC, codigoz, genero, password);
 		//this.idiomas = idiomas;
 		this.universidad = universidad;
 		this.carrera = carrera;
