@@ -8,9 +8,10 @@ public class Empresa {
 	private String direccion;
 	private String areaDeTrabajo;
 	private String numero_Telefono;
+	private String password;
 	
 	public Empresa(String nombreEmpresa, String rNC_Empresa, String pais, String codPostal, String direccion,
-			String areaDeTrabajo, String numero_Telefono) {
+			String areaDeTrabajo, String numero_Telefono, String password) {
 		super();
 		this.nombreEmpresa = nombreEmpresa;
 		this.rnc_Empresa = rNC_Empresa;
@@ -19,6 +20,7 @@ public class Empresa {
 		this.direccion = direccion;
 		this.areaDeTrabajo = areaDeTrabajo;
 		this.numero_Telefono = numero_Telefono;
+		this.password = password;
 	}
 
 	public String getNombreEmpresa() {
@@ -76,5 +78,14 @@ public class Empresa {
 	public void setNumero_Telefono(String numero_Telefono) {
 		this.numero_Telefono = numero_Telefono;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 
 }
