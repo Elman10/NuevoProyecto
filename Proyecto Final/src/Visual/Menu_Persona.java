@@ -17,7 +17,7 @@ import javax.swing.border.TitledBorder;
 import Logico.CrucialWork;
 import Logico.Obrer0;
 import Logico.Persona;
-import Logico.Tecnico;
+import Logico.Tecnic0;
 import Logico.Universitario;
 
 import javax.swing.UIManager;
@@ -52,7 +52,7 @@ public class Menu_Persona extends JFrame {
 	 * Create the frame.
 	 * @param aux 
 	 */
-	public Menu_Persona(String cedula) {
+	public Menu_Persona(String cedula, ArrayList<String>aux) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 880, 610);
 		setLocationRelativeTo(null);
@@ -152,7 +152,7 @@ public class Menu_Persona extends JFrame {
 					txtProfesion.setText("Obrero");
 				}else if(p instanceof Universitario) {
 					txtProfesion.setText("Universitario");
-				}else if(p instanceof Tecnico) {
+				}else if(p instanceof Tecnic0) {
 					txtProfesion.setText("Técnico");
 				}
 				txtGenero.setText(p.getGenero());
@@ -161,7 +161,7 @@ public class Menu_Persona extends JFrame {
 			}
 		}
 		
-		//listHabilidades.setListData(aux.toArray());
+		listHabilidades.setListData(aux.toArray());
 		
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.addActionListener(new ActionListener() {

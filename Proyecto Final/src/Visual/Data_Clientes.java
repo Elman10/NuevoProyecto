@@ -30,6 +30,7 @@ import javax.swing.border.TitledBorder;
 import Logico.CrucialWork;
 import Logico.Obrer0;
 import Logico.Persona;
+import Logico.Tecnic0;
 import Logico.Universitario;
 
 import java.awt.Font;
@@ -300,79 +301,25 @@ public class Data_Clientes extends JDialog {
 						if(rdbtnObrero.isSelected()) {
 							person = new Obrer0(txtNombre.getText(), txtApellido.getText(), txtCedula.getText(), cbxPais.getSelectedItem().toString(), txtTelefono.getText(), cbxEstadoC.getSelectedItem().toString(),
 									txtCodigoZIP.getText(), cbxGenero.getSelectedItem().toString(), txtCedula.getText(), aux, txtArea.getText());
-							CrucialWork.getInstance().insertPerson(person);
+							
 							
 						}
-						Menu_Persona main = new Menu_Persona(txtCedula.getText());
+						if(rdbtnUniversitario.isSelected()) {
+							person = new Universitario(txtNombre.getText(), txtApellido.getText(), txtCedula.getText(), cbxPais.getSelectedItem().toString(),
+									txtTelefono.getText(),cbxEstadoC.getSelectedItem().toString(),txtCodigoZIP.getText(),cbxGenero.getSelectedItem().toString(),
+									txtCedula.getText(),txtUniversidad.getText(),cbxCarrera.getSelectedItem().toString(),aux);
+						}
+						if(rdbtnTecnico.isSelected()) {
+							person = new Tecnic0(txtNombre.getText(),txtApellido.getText(),txtCedula.getText(),cbxPais.getSelectedItem().toString(),
+									txtTelefono.getText(),cbxEstadoC.getSelectedItem().toString(),txtCodigoZIP.getText(),cbxGenero.getSelectedItem().toString(),
+									txtCedula.getText(),aux,txtArea.getText());
+						}
+						CrucialWork.getInstance().insertPerson(person);
+						Menu_Persona main = new Menu_Persona(txtCedula.getText(),aux);
 						main.setVisible(true);
 						dispose();
 						
-						/*if(cbxGenero.getSelectedItem().toString().equalsIgnoreCase("Otros...")) {
-							
-							if(rdbtnObrero.isSelected() || txtNombre.getText().isEmpty() || 
-									txtApellido.getText().isEmpty() ||  txtCedula.getText().isEmpty()  ||
-									txtCodigoZIP.getText().isEmpty() || txtTelefono.getText().isEmpty() || cbxEstadoC.getSelectedItem().toString().equalsIgnoreCase("<Seleccione>") ||
-									txtOtros.getText().equalsIgnoreCase("<Genero>") || txtOtros.getText().isEmpty()) {
-								if(txtArea.getText().isEmpty()) {
-									JOptionPane.showMessageDialog(null, "Faltan campos por completar.");
-								}
-							}else {
-								p =  new Universitario(txtNombre.getText(),txtApellido.getText(),txtCedula.getText(),
-										cbxPais.getSelectedItem().toString(),txtTelefono.getText(),cbxEstadoC.getSelectedItem().toString(),
-										txtCodigoZIP.getText(),cbxGenero.getSelectedItem().toString(),null, "Ing. Sistema");
-								
-							}
-							if(rdbtnUniversitario.isSelected()  || txtNombre.getText().isEmpty() || 
-									txtApellido.getText().isEmpty() ||  txtCedula.getText().isEmpty()  ||
-									txtCodigoZIP.getText().isEmpty() || txtTelefono.getText().isEmpty() || cbxEstadoC.getSelectedItem().toString().equalsIgnoreCase("<Seleccione>") ||
-									txtOtros.getText().equalsIgnoreCase("<Genero>") || txtOtros.getText().isEmpty()) {
-								
-								if(txtUniversidad.getText().isEmpty() || cbxCarrera.getSelectedItem().toString().equalsIgnoreCase("<Seleccione su carrera>")) {
-									JOptionPane.showMessageDialog(null, "Faltan campos por completar.");
-								}
-							}
-							if(rdbtnTecnico.isSelected() || txtNombre.getText().isEmpty() || 
-									txtApellido.getText().isEmpty() ||  txtCedula.getText().isEmpty()  ||
-									txtCodigoZIP.getText().isEmpty() || txtTelefono.getText().isEmpty() || cbxEstadoC.getSelectedItem().toString().equalsIgnoreCase("<Seleccione>") ||
-									txtOtros.getText().equalsIgnoreCase("<Genero>") || txtOtros.getText().isEmpty()) {
-								if(txtArea.getText().isEmpty()) {
-									JOptionPane.showMessageDialog(null, "Faltan campos por completar.");
-								}
-							}
 						
-						}else {
-							if(rdbtnObrero.isSelected() || txtNombre.getText().isEmpty() || 
-									txtApellido.getText().isEmpty() ||  txtCedula.getText().isEmpty()  ||
-									txtCodigoZIP.getText().isEmpty() || txtTelefono.getText().isEmpty() || cbxEstadoC.getSelectedItem().toString().equalsIgnoreCase("<Seleccione>") ||
-									cbxGenero.getSelectedItem().toString().equalsIgnoreCase("<Seleccione>")) {
-								if(txtArea.getText().isEmpty()) {
-									JOptionPane.showMessageDialog(null, "Faltan campos por completar.");
-								}
-							}
-							if(rdbtnUniversitario.isSelected()  || txtNombre.getText().isEmpty() || 
-									txtApellido.getText().isEmpty() ||  txtCedula.getText().isEmpty()  ||
-									txtCodigoZIP.getText().isEmpty() || txtTelefono.getText().isEmpty() || cbxEstadoC.getSelectedItem().toString().equalsIgnoreCase("<Seleccione>") ||
-									cbxGenero.getSelectedItem().toString().equalsIgnoreCase("<Seleccione>")) {
-								
-								if(txtUniversidad.getText().isEmpty() || cbxCarrera.getSelectedItem().toString().equalsIgnoreCase("<Seleccione su carrera>")) {
-									JOptionPane.showMessageDialog(null, "Faltan campos por completar.");
-								}
-							}
-							if(rdbtnTecnico.isSelected() || txtNombre.getText().isEmpty() || 
-									txtApellido.getText().isEmpty() ||  txtCedula.getText().isEmpty()  ||
-									txtCodigoZIP.getText().isEmpty() || txtTelefono.getText().isEmpty() || cbxEstadoC.getSelectedItem().toString().equalsIgnoreCase("<Seleccione>") ||
-									cbxGenero.getSelectedItem().toString().equalsIgnoreCase("<Seleccione>")) {
-								if(txtArea.getText().isEmpty()) {
-									JOptionPane.showMessageDialog(null, "Faltan campos por completar.");
-								}
-							}
-						}
-						CrucialWork.getInstance().insertPerson(p);
-						//Menu_Persona m = new Menu_Persona();
-						//m.setVisible(true);
-						//dispose();
-						
-					}*/
 					}
 				});
 				btnRegistrar.setBackground(SystemColor.text);
@@ -397,6 +344,12 @@ public class Data_Clientes extends JDialog {
 				txtIdioma.setColumns(10);
 				
 				JButton btnAgregarId = new JButton("Agregar otro idioma");
+				btnAgregarId.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						aux.add(txtIdioma.getText());
+						txtIdioma.setText("");
+					}
+				});
 				btnAgregarId.setBackground(Color.WHITE);
 				btnAgregarId.setBounds(289, 40, 169, 22);
 				Universidad.add(btnAgregarId);
@@ -443,6 +396,12 @@ public class Data_Clientes extends JDialog {
 				txtAreas.setColumns(10);
 				
 				JButton btnAgregarA = new JButton("Agregar otra área");
+				btnAgregarA.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						aux.add(txtAreas.getText());
+						txtAreas.setText("");
+					}
+				});
 				btnAgregarA.setBackground(Color.WHITE);
 				btnAgregarA.setBounds(289, 40, 169, 22);
 				Tecnico.add(btnAgregarA);
