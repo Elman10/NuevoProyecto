@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class SolicitudEmpleo {
 	
 	private String cedula;
-	private float salarioMinimo;
+	private String salarioMinimo;
 	private Persona persona;
 	private boolean estado;
 	private boolean dispViaje;
 	
 	
 	
-	public SolicitudEmpleo(String cedula, float salarioMinimo, boolean estado, boolean dispViaje, Persona persona) {
+	public SolicitudEmpleo(String cedula, String salarioMinimo, boolean estado, boolean dispViaje, Persona persona) {
 		super();
 		this.cedula = cedula;
 		this.salarioMinimo = salarioMinimo;
@@ -32,12 +32,12 @@ public class SolicitudEmpleo {
 	}
 
 
-	public float getSalarioMinimo() {
+	public String getSalarioMinimo() {
 		return salarioMinimo;
 	}
 
 
-	public void setSalarioMinimo(float salarioMinimo) {
+	public void setSalarioMinimo(String salarioMinimo) {
 		this.salarioMinimo = salarioMinimo;
 	}
 

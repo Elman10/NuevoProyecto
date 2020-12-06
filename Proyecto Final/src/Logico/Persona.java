@@ -1,5 +1,7 @@
 package Logico;
 
+import java.util.ArrayList;
+
 public abstract class Persona {
 	protected String nombre;
 	protected String apellido;
@@ -10,6 +12,7 @@ public abstract class Persona {
 	protected String codigoz;
 	protected String genero;
 	protected String password;
+
 	
 
 	public Persona(String nombre, String apellido, String cedula, String pais, String telefono, String estadoC,

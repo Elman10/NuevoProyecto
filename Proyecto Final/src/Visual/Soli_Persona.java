@@ -11,16 +11,24 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
+
+import Logico.CrucialWork;
+import Logico.SolicitudEmpleo;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import java.awt.SystemColor;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
 
 public class Soli_Persona extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtCedula;
 	private JTextField txtSalario;
+	private ArrayList<SolicitudEmpleo> soliemp = new ArrayList<SolicitudEmpleo>();
 
 	/**
 	 * Launch the application.
@@ -109,6 +117,18 @@ public class Soli_Persona extends JDialog {
 		panel.add(chckbxNo);
 		
 		JButton btnSolicitar = new JButton("Solicitar");
+		btnSolicitar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chckbxSi.isSelected()) {
+				SolicitudEmpleo se = new SolicitudEmpleo(txtCedula.getText(),txtSalario.getText(),false,true,CrucialWork.getInstance().buscarPersona(txtCedula.getText()));
+				soliemp.add(se);
+				}
+			}
+		});
+		/*
+		 * NOTA PARA MI MISMO (eliam) COMRPOBAR AL HACER EL JTABLE DE LAS SOLICITUDES QUE ESTÉ FUNCIONANDO DE ESTA FORMA. 
+		 * */
+		 
 		btnSolicitar.setBackground(SystemColor.inactiveCaptionBorder);
 		btnSolicitar.setBounds(268, 351, 97, 25);
 		panel.add(btnSolicitar);
