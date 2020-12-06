@@ -303,7 +303,7 @@ public class Data_Clientes extends JDialog {
 							CrucialWork.getInstance().insertPerson(person);
 							
 						}
-						Menu_Persona main = new Menu_Persona(txtCedula.getText());
+						Menu_Persona main = new Menu_Persona(txtCedula.getText(), null);
 						main.setVisible(true);
 						dispose();
 						

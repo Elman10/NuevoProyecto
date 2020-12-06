@@ -2,12 +2,12 @@ package Logico;
 
 import java.util.ArrayList;
 
-public class Tecnico extends Persona {
+public class Tecnic0 extends Persona {
 	
 	private ArrayList<String> area;
 	private String experiencia;
 	
-	public Tecnico(String nombre, String apellido, String cedula, String pais, String telefono, String estadoC,
+	public Tecnic0(String nombre, String apellido, String cedula, String pais, String telefono, String estadoC,
 			String codigoz, String genero, String password, ArrayList<String> area, String experiencia) {
 		super(nombre, apellido, cedula, pais, telefono, estadoC, codigoz, genero,password);
 		this.area = area;

@@ -96,6 +96,13 @@ public class PgPrincipal extends JFrame {
 		panel.add(btnSolicitar);
 		
 		JButton btnAgregar = new JButton("Añadir Empresa");
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Data_Empresa de = new Data_Empresa();
+				de.setVisible(true);
+				dispose();
+			}
+		});
 		btnAgregar.setBackground(Color.WHITE);
 		btnAgregar.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
 		btnAgregar.setBounds(729, 500, 163, 39);
