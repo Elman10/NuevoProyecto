@@ -150,7 +150,15 @@ public class Login extends JDialog {
 		JButton btnLogin = new JButton("Iniciar Sesión");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(CrucialWork.getInstance().buscarPersona(txtCedula.getText()) != null){
+				if(CrucialWork.getInstance().confirmarUsuario(txtCedula.getText(), txtContrasegna.getText())) {
+					
+				PgPrincipal Frame = new PgPrincipal();
+				dispose();
+				Frame.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(null, "El usuario o la contrase�a son incorrectas", "Error al iniciar Sesion", JOptionPane.INFORMATION_MESSAGE);
+				}
+				/*if(CrucialWork.getInstance().buscarPersona(txtCedula.getText()) != null){
 			for(Persona p : CrucialWork.getInstance().getP()) {
 				if(p.getCedula().equals(txtCedula.getText())) {
 					if(p.getCedula().equals(txtContrasegna.getText())) {
@@ -162,7 +170,7 @@ public class Login extends JDialog {
 				JOptionPane.showMessageDialog(null, "Cédula o contraseña incorrecta.", "Error al iniciar sesión.", JOptionPane.ERROR_MESSAGE);
 
 			}
-		}
+		}*/
 			}
 		});
 		btnLogin.setBackground(SystemColor.menu);

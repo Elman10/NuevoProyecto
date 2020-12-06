@@ -1,8 +1,11 @@
 package Logico;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class CrucialWork {
+
+
+public class CrucialWork implements Serializable {
 	
 	private ArrayList<Persona>p;
 	private ArrayList<Empresa>e;
@@ -10,10 +13,34 @@ public class CrucialWork {
 	public static int cont_p = 0;
 	public static int cont_e = 0;
 	
+	private static final long serialVersionUID = 1L;
+	private static CrucialWork control;
+	private static Persona loginPersona;
+	
 	private CrucialWork() {
 		super();
 		this.p = new ArrayList<>();
 		this.e = new ArrayList<>();
+		
+	}
+
+
+	
+	public static CrucialWork getControl() {
+		return control;
+	}
+	
+	public static Persona getLoginUser() {
+		return loginPersona;
+	}
+
+	public static void setLoginUser(Persona LoginPersona) {
+		CrucialWork.loginPersona = LoginPersona;
+	}
+
+
+	public static void setControl(CrucialWork control) {
+		CrucialWork.control = control;
 	}
 	
 	public ArrayList<Persona> getP() {
@@ -59,7 +86,17 @@ public class CrucialWork {
 		}
 		return null;
 	}
-	
+
+	public boolean confirmarUsuario(String Nombre, String Contraseña) {
+		boolean login = false;
+		for (Persona Persona : p) {
+			if(Persona.getNombre().equals(Nombre) && Persona.getCedula().equals(Contraseña)){
+				loginPersona = Persona;
+				login = true;
+			}
+		}
+		return login;
+	}
 	
 	
 	
