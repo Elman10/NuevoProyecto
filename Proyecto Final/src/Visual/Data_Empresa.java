@@ -36,7 +36,7 @@ public class Data_Empresa extends JDialog {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		try {
 			Data_Empresa dialog = new Data_Empresa();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -170,6 +170,9 @@ public class Data_Empresa extends JDialog {
 					Empresa emp = new Empresa(txtNombre.getText(),txtRNC.getText(),cbxPais.getSelectedItem().toString(),
 							txtZIP.getText(),txtDireccion.getText(),cbxArea.getSelectedItem().toString(),txtTelefono.getText(),txtRNC.getText());
 					CrucialWork.getInstance().insertEmpresa(emp);
+					Menu_Empresa me = new Menu_Empresa();
+					me.setVisible(true);
+					dispose();
 				}
 			});
 			btnRegistrar.setBackground(Color.WHITE);
