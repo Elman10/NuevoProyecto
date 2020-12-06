@@ -1,5 +1,7 @@
 package Logico;
 
+import java.util.ArrayList;
+
 public class SolicitudEmpleo {
 	
 	private String cedula;
@@ -9,11 +11,12 @@ public class SolicitudEmpleo {
 	private boolean dispViaje;
 	
 	
-	public SolicitudEmpleo(String cedula, float salarioMinimo, boolean estado, boolean dispViaje) {
+	
+	public SolicitudEmpleo(String cedula, float salarioMinimo, boolean estado, boolean dispViaje, Persona persona) {
 		super();
 		this.cedula = cedula;
 		this.salarioMinimo = salarioMinimo;
-		//this.persona = persona;
+		this.persona = persona;
 		this.estado = estado;
 		this.dispViaje = dispViaje;
 	}
