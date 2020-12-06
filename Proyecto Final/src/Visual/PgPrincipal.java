@@ -83,6 +83,13 @@ public class PgPrincipal extends JFrame {
 		panel.add(separator);
 		
 		JButton btnSolicitar = new JButton("Solicitar");
+		btnSolicitar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Data_Clientes dt = new Data_Clientes();
+				dt.setVisible(true);
+				dispose();
+			}
+		});
 		btnSolicitar.setBackground(Color.WHITE);
 		btnSolicitar.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
 		btnSolicitar.setBounds(164, 500, 163, 39);

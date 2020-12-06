@@ -154,13 +154,13 @@ public class Login extends JDialog {
 			for(Persona p : CrucialWork.getInstance().getP()) {
 				if(p.getCedula().equals(txtCedula.getText())) {
 					if(p.getCedula().equals(txtContrasegna.getText())) {
-						
-					}else {
-						JOptionPane.showMessageDialog(null, "Cédula o contraseña incorrecta.", "Error al iniciar sesión.", JOptionPane.ERROR_MESSAGE);
+						Menu_Persona menu = new Menu_Persona(txtCedula.getText());
+						menu.setVisible(true);
+						dispose();
 					}
-				}else {
-					JOptionPane.showMessageDialog(null, "Cédula o contraseña incorrecta.", "Error al iniciar sesión.", JOptionPane.ERROR_MESSAGE);
 				}
+				JOptionPane.showMessageDialog(null, "Cédula o contraseña incorrecta.", "Error al iniciar sesión.", JOptionPane.ERROR_MESSAGE);
+
 			}
 		}
 			}

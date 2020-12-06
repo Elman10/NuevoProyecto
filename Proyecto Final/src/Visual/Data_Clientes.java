@@ -68,7 +68,7 @@ public class Data_Clientes extends JDialog {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		try {
 			Data_Clientes dialog = new Data_Clientes();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -300,11 +300,13 @@ public class Data_Clientes extends JDialog {
 						if(rdbtnObrero.isSelected()) {
 							person = new Obrer0(txtNombre.getText(), txtApellido.getText(), txtCedula.getText(), cbxPais.getSelectedItem().toString(), txtTelefono.getText(), cbxEstadoC.getSelectedItem().toString(),
 									txtCodigoZIP.getText(), cbxGenero.getSelectedItem().toString(), txtCedula.getText(), aux, txtArea.getText());
+							CrucialWork.getInstance().insertPerson(person);
+							
 						}
-						CrucialWork.getInstance().insertPerson(person);
-						Menu_Persona main = new Menu_Persona(txtCedula.getText(),aux);
+						Menu_Persona main = new Menu_Persona(txtCedula.getText());
 						main.setVisible(true);
 						dispose();
+						
 						/*if(cbxGenero.getSelectedItem().toString().equalsIgnoreCase("Otros...")) {
 							
 							if(rdbtnObrero.isSelected() || txtNombre.getText().isEmpty() || 
