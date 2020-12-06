@@ -9,11 +9,13 @@ public class CrucialWork {
 	public static CrucialWork c = new CrucialWork();
 	public static int cont_p = 0;
 	public static int cont_e = 0;
+	private ArrayList<SolicitudEmpleo>se;
 	
 	private CrucialWork() {
 		super();
 		this.p = new ArrayList<>();
 		this.e = new ArrayList<>();
+		this.se = new ArrayList<>();
 	}
 	
 	public ArrayList<Persona> getP() {
@@ -30,11 +32,21 @@ public class CrucialWork {
 	public void setE(ArrayList<Empresa> e) {
 		this.e = e;
 	}
+	
+	
 
+	public ArrayList<SolicitudEmpleo> getSe() {
+		return se;
+	}
+
+	public void setSe(ArrayList<SolicitudEmpleo> se) {
+		this.se = se;
+	}
 
 	public static CrucialWork getInstance(){
 			return c;
 	}
+	
 	
 	public void insertPerson(Persona persona) {
 		p.add(persona);
