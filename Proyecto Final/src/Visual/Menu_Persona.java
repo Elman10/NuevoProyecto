@@ -35,7 +35,6 @@ import java.awt.event.ActionEvent;
 public class Menu_Persona extends JFrame {
 
 	private JPanel contentPane;
-	private int i = 0;
 	private JTextField txtCedula;
 	private JList listHabilidades;
 	private JTextField txtProfesion;
@@ -56,7 +55,7 @@ public class Menu_Persona extends JFrame {
 	 * Create the frame.
 	 * @param aux 
 	 */
-	public Menu_Persona(String cedula, ArrayList<String>aux) {
+	public Menu_Persona(String cedula) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 880, 610);
 		setLocationRelativeTo(null);
@@ -102,7 +101,7 @@ public class Menu_Persona extends JFrame {
 		
 		
 		
-		JButton btnNewButton = new JButton("Cerrar SesiÃ³n");
+		JButton btnNewButton = new JButton("Cerrar Sesión");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PgPrincipal main = new PgPrincipal();
@@ -198,7 +197,7 @@ public class Menu_Persona extends JFrame {
 				}else if(p instanceof Universitario) {
 					txtProfesion.setText("Universitario");
 				}else if(p instanceof Tecnic0) {
-					txtProfesion.setText("TÃ©cnico");
+					txtProfesion.setText("Técnico");
 				}
 				txtGenero.setText(p.getGenero());
 				txtTelefono.setText(p.getTelefono());
@@ -209,10 +208,10 @@ public class Menu_Persona extends JFrame {
 			
 			}
 		}
-		
+			
 			
 		
-		listHabilidades.setListData(aux.toArray());
+		
 		
 		
 		JButton btnBuscar = new JButton("Buscar");
@@ -229,7 +228,7 @@ public class Menu_Persona extends JFrame {
 					}else if(q instanceof Universitario) {
 						txtProfesion.setText("Universitario");
 					}else if(q instanceof Tecnic0) {
-						txtProfesion.setText("TÃ©cnico");
+						txtProfesion.setText("Técnico");
 					}
 					txtGenero.setText(q.getGenero());
 					txtTelefono.setText(q.getTelefono());

@@ -144,16 +144,16 @@ public class Data_Clientes extends JDialog {
 				txtApellido.setBounds(361, 38, 148, 22);
 				Recoger_Datos_Panel.add(txtApellido);
 				
-				JLabel lblPais = new JLabel("*País:");
+				JLabel lblPais = new JLabel("*PaÃ­s:");
 				lblPais.setBounds(27, 99, 82, 16);
 				Recoger_Datos_Panel.add(lblPais);
 				
 				JComboBox cbxPais = new JComboBox();
-				cbxPais.setModel(new DefaultComboBoxModel(new String[] {"Elige tu país...", "Afganistán", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladés", "Barbados", "Baréin", "Bélgica", "Belice", "Benín", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "Brunéi", "Bulgaria", "Burkina Faso", "Burundi", "Bután", "Cabo Verde", "Camboya", "Camerún", "Canadá", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Árabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "España", "Estados Unidos", "Estonia", "Etiopía", "Filipinas", "Finlandia", "Fiyi", "Francia", "Gabón", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-Bisáu", "Haití", "Honduras", "Hungría", "India", "Indonesia", "Irak", "Irán", "Irlanda", "Islandia", "Islas Marshall", "Islas Salomón", "Israel", "Italia", "Jamaica", "Japón", "Jordania", "Kazajistán", "Kenia", "Kirguistán", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "Líbano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "Malí", "Malta", "Marruecos", "Mauricio", "Mauritania", "México", "Micronesia", "Moldavia", "Mónaco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "Níger", "Nigeria", "Noruega", "Nueva Zelanda", "Omán", "Países Bajos", "Pakistán", "Palaos", "Panamá", "Papúa Nueva Guinea", "Paraguay", "Perú", "Polonia", "Portugal", "Reino Unido", "República Centroafricana", "República Checa", "República del Congo", "República Democrática del Congo", "República Dominicana", "Ruanda", "Rumanía", "Rusia", "Samoa", "San Cristóbal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa Lucía", "Santo Tomé y Príncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "Sudáfrica", "Sudán", "Sudán del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "Tayikistán", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "Túnez", "Turkmenistán", "Turquía", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "Uzbekistán", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue"}));
+				cbxPais.setModel(new DefaultComboBoxModel(new String[] {"Elige tu paÃ­s...", "AfganistÃ¡n", "Albania", "Alemania", "Andorra", "Angola", "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina", "Armenia", "Australia", "Austria", "AzerbaiyÃ¡n", "Bahamas", "BangladÃ©s", "Barbados", "BarÃ©in", "BÃ©lgica", "Belice", "BenÃ­n", "Bielorrusia", "Birmania", "Bolivia", "Bosnia y Herzegovina", "Botsuana", "Brasil", "BrunÃ©i", "Bulgaria", "Burkina Faso", "Burundi", "ButÃ¡n", "Cabo Verde", "Camboya", "CamerÃºn", "CanadÃ¡", "Catar", "Chad", "Chile", "China", "Chipre", "Ciudad del Vaticano", "Colombia", "Comoras", "Corea del Norte", "Corea del Sur", "Costa de Marfil", "Costa Rica", "Croacia", "Cuba", "Dinamarca", "Dominica", "Ecuador", "Egipto", "El Salvador", "Emiratos Ã�rabes Unidos", "Eritrea", "Eslovaquia", "Eslovenia", "EspaÃ±a", "Estados Unidos", "Estonia", "EtiopÃ­a", "Filipinas", "Finlandia", "Fiyi", "Francia", "GabÃ³n", "Gambia", "Georgia", "Ghana", "Granada", "Grecia", "Guatemala", "Guyana", "Guinea", "Guinea ecuatorial", "Guinea-BisÃ¡u", "HaitÃ­", "Honduras", "HungrÃ­a", "India", "Indonesia", "Irak", "IrÃ¡n", "Irlanda", "Islandia", "Islas Marshall", "Islas SalomÃ³n", "Israel", "Italia", "Jamaica", "JapÃ³n", "Jordania", "KazajistÃ¡n", "Kenia", "KirguistÃ¡n", "Kiribati", "Kuwait", "Laos", "Lesoto", "Letonia", "LÃ­bano", "Liberia", "Libia", "Liechtenstein", "Lituania", "Luxemburgo", "Macedonia del Norte", "Madagascar", "Malasia", "Malaui", "Maldivas", "MalÃ­", "Malta", "Marruecos", "Mauricio", "Mauritania", "MÃ©xico", "Micronesia", "Moldavia", "MÃ³naco", "Mongolia", "Montenegro", "Mozambique", "Namibia", "Nauru", "Nepal", "Nicaragua", "NÃ­ger", "Nigeria", "Noruega", "Nueva Zelanda", "OmÃ¡n", "PaÃ­ses Bajos", "PakistÃ¡n", "Palaos", "PanamÃ¡", "PapÃºa Nueva Guinea", "Paraguay", "PerÃº", "Polonia", "Portugal", "Reino Unido", "RepÃºblica Centroafricana", "RepÃºblica Checa", "RepÃºblica del Congo", "RepÃºblica DemocrÃ¡tica del Congo", "RepÃºblica Dominicana", "Ruanda", "RumanÃ­a", "Rusia", "Samoa", "San CristÃ³bal y Nieves", "San Marino", "San Vicente y las Granadinas", "Santa LucÃ­a", "Santo TomÃ© y PrÃ­ncipe", "Senegal", "Serbia", "Seychelles", "Sierra Leona", "Singapur", "Siria", "Somalia", "Sri Lanka", "Suazilandia", "SudÃ¡frica", "SudÃ¡n", "SudÃ¡n del Sur", "Suecia", "Suiza", "Surinam", "Tailandia", "Tanzania", "TayikistÃ¡n", "Timor Oriental", "Togo", "Tonga", "Trinidad y Tobago", "TÃºnez", "TurkmenistÃ¡n", "TurquÃ­a", "Tuvalu", "Ucrania", "Uganda", "Uruguay", "UzbekistÃ¡n", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Yibuti", "Zambia", "Zimbabue"}));
 				cbxPais.setBounds(115, 96, 148, 22);
 				Recoger_Datos_Panel.add(cbxPais);
 				
-				JLabel lblCodPostal = new JLabel("*Código ZIP:");
+				JLabel lblCodPostal = new JLabel("*CÃ³digo ZIP:");
 				lblCodPostal.setBounds(275, 99, 82, 16);
 				Recoger_Datos_Panel.add(lblCodPostal);
 				
@@ -162,7 +162,7 @@ public class Data_Clientes extends JDialog {
 				txtCodigoZIP.setBounds(361, 96, 148, 22);
 				Recoger_Datos_Panel.add(txtCodigoZIP);
 				
-				lblTelefono = new JLabel("*Teléfono:");
+				lblTelefono = new JLabel("*TelÃ©fono:");
 				lblTelefono.setBounds(27, 128, 82, 16);
 				Recoger_Datos_Panel.add(lblTelefono);
 				
@@ -171,7 +171,7 @@ public class Data_Clientes extends JDialog {
 				txtTelefono.setBounds(115, 125, 148, 22);
 				Recoger_Datos_Panel.add(txtTelefono);
 				
-				JLabel lblGnero = new JLabel("*Género:");
+				JLabel lblGnero = new JLabel("*GÃ©nero:");
 				lblGnero.setBounds(27, 157, 82, 16);
 				Recoger_Datos_Panel.add(lblGnero);
 				
@@ -222,7 +222,7 @@ public class Data_Clientes extends JDialog {
 				rdbtnUniversitario.setBounds(264, 252, 127, 25);
 				Recoger_Datos_Panel.add(rdbtnUniversitario);
 				
-				rdbtnTecnico = new JRadioButton("Técnico");
+				rdbtnTecnico = new JRadioButton("TÃ©cnico");
 				rdbtnTecnico.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						Obrero.setVisible(false);
@@ -263,7 +263,7 @@ public class Data_Clientes extends JDialog {
 				txtHabilidades.setBounds(118, 40, 148, 22);
 				Obrero.add(txtHabilidades);
 				
-				JButton btnAgregar = new JButton("Añadir otra habilidad");
+				JButton btnAgregar = new JButton("AÃ±adir otra habilidad");
 				btnAgregar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						aux.add(txtHabilidades.getText());
@@ -315,11 +315,11 @@ public class Data_Clientes extends JDialog {
 									txtCedula.getText(),aux,txtArea.getText());
 						}
 						CrucialWork.getInstance().insertPerson(person);
-						Menu_Persona main = new Menu_Persona(txtCedula.getText(),aux);
+						Menu_Persona main = new Menu_Persona(txtCedula.getText());
 						main.setVisible(true);
 						dispose();
 						
-						
+					
 					}
 				});
 				btnRegistrar.setBackground(SystemColor.text);
@@ -344,12 +344,6 @@ public class Data_Clientes extends JDialog {
 				txtIdioma.setColumns(10);
 				
 				JButton btnAgregarId = new JButton("Agregar otro idioma");
-				btnAgregarId.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						aux.add(txtIdioma.getText());
-						txtIdioma.setText("");
-					}
-				});
 				btnAgregarId.setBackground(Color.WHITE);
 				btnAgregarId.setBounds(289, 40, 169, 22);
 				Universidad.add(btnAgregarId);
@@ -370,7 +364,7 @@ public class Data_Clientes extends JDialog {
 				Universidad.add(lblCarrera);
 				
 				cbxCarrera = new JComboBox();
-				cbxCarrera.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione su carrera>", "Dirección Empresarial", "Administración Hotelera", "Arquitectura", "Comunicación Social", "Derecho", "Diseño", "Interiorismo", "Ecología y Gestión Ambiental", "Economía", "Educación", "Estomatología", "Filosofía", "Gestión Financiera", "Editorial", "Ingeniería Civil", "Ingeniería Mecánica", "Ingeniería Eléctrica", "Ingeniería Industrial", "Ingeniería Mecatrónica", "Ingeniería en Sistemas y Computación", "Ingeniería Telemática", "Medicina", "Marketing", "Nutrición y Dietética", "Psicología", "Terapia", "Física", "Trabajo Social"}));
+				cbxCarrera.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione su carrera>", "DirecciÃ³n Empresarial", "AdministraciÃ³n Hotelera", "Arquitectura", "ComunicaciÃ³n Social", "Derecho", "DiseÃ±o", "Interiorismo", "EcologÃ­a y GestiÃ³n Ambiental", "EconomÃ­a", "EducaciÃ³n", "EstomatologÃ­a", "FilosofÃ­a", "GestiÃ³n Financiera", "Editorial", "IngenierÃ­a Civil", "IngenierÃ­a MecÃ¡nica", "IngenierÃ­a ElÃ©ctrica", "IngenierÃ­a Industrial", "IngenierÃ­a MecatrÃ³nica", "IngenierÃ­a en Sistemas y ComputaciÃ³n", "IngenierÃ­a TelemÃ¡tica", "Medicina", "Marketing", "NutriciÃ³n y DietÃ©tica", "PsicologÃ­a", "Terapia", "FÃ­sica", "Trabajo Social"}));
 				cbxCarrera.setBounds(118, 173, 180, 22);
 				Universidad.add(cbxCarrera);
 				
@@ -395,13 +389,7 @@ public class Data_Clientes extends JDialog {
 				Tecnico.add(txtAreas);
 				txtAreas.setColumns(10);
 				
-				JButton btnAgregarA = new JButton("Agregar otra área");
-				btnAgregarA.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						aux.add(txtAreas.getText());
-						txtAreas.setText("");
-					}
-				});
+				JButton btnAgregarA = new JButton("Agregar otra Ã¡rea");
 				btnAgregarA.setBackground(Color.WHITE);
 				btnAgregarA.setBounds(289, 40, 169, 22);
 				Tecnico.add(btnAgregarA);

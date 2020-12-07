@@ -135,7 +135,7 @@ public class Menu_Empresa extends JFrame {
 			txtDireccion.setText(e.getDireccion());
 			txtTelefono.setText(e.getNumero_Telefono());
 			txtZIP.setText(e.getCodPostal());
-			lblNombre.setText(e.getNombreEmpresa());
+       		lblNombre.setText(e.getNombreEmpresa());
 			
 		}
 	}

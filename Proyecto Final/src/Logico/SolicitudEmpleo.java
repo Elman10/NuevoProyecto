@@ -33,7 +33,7 @@ public class SolicitudEmpleo {
 
 
 	public String getSalarioMinimo() {
-		return salarioMinimo;
+	        return salarioMinimo;
 	}
 
 
