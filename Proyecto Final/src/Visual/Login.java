@@ -148,29 +148,18 @@ public class Login extends JDialog {
 		Empresa.add(lblAvisso);
 		
 		JButton btnLogin = new JButton("Iniciar Sesión");
-		btnLogin.addActionListener(new ActionListener() {
+		btnLogin.addActionListener(new ActionListener() {   // LOGIN COMPLETO, NO TOCAR CHICOS :)
 			public void actionPerformed(ActionEvent e) {
-				if(CrucialWork.getInstance().confirmarUsuario(txtCedula.getText(), txtContrasegna.getText())) {
-					
-				PgPrincipal Frame = new PgPrincipal();
-				dispose();
-				Frame.setVisible(true);
-				}else {
-					JOptionPane.showMessageDialog(null, "El usuario o la contrase�a son incorrectas", "Error al iniciar Sesion", JOptionPane.INFORMATION_MESSAGE);
+				if(CrucialWork.getInstance().login(txtCedula.getText(), txtContrasegna.getText()) != null) {
+					Menu_Persona mn = new Menu_Persona(CrucialWork.getInstance().login(txtCedula.getText(), txtContrasegna.getText()));
+					mn.setVisible(true);
+					dispose();
 				}
-				/*if(CrucialWork.getInstance().buscarPersona(txtCedula.getText()) != null){
-			for(Persona p : CrucialWork.getInstance().getP()) {
-				if(p.getCedula().equals(txtCedula.getText())) {
-					if(p.getCedula().equals(txtContrasegna.getText())) {
-						Menu_Persona menu = new Menu_Persona(txtCedula.getText());
-						menu.setVisible(true);
-						dispose();
-					}
-				}
-				JOptionPane.showMessageDialog(null, "Cédula o contraseña incorrecta.", "Error al iniciar sesión.", JOptionPane.ERROR_MESSAGE);
-
-			}
-		}*/
+				else if(txtCedula.getText().isEmpty() && txtContrasegna.getText().isEmpty())
+					JOptionPane.showMessageDialog(null, "Complete todos los campos.", "ERR0R404", JOptionPane.ERROR_MESSAGE);
+				else if(CrucialWork.getInstance().login(txtCedula.getText(), txtContrasegna.getText()) == null)
+					JOptionPane.showMessageDialog(null, "Cédula o Contraseña incorrecta(s) ", "ERR0R404", JOptionPane.ERROR_MESSAGE);
+				 
 			}
 		});
 		btnLogin.setBackground(SystemColor.menu);

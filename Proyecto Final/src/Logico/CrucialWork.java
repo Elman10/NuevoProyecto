@@ -72,7 +72,16 @@ public class CrucialWork {
 		return null;
 	}
 	
-	
+	public Persona login(String cedula, String password) {
+		for(Persona person : p) {
+			if(person != null) {
+				if(person.getCedula().equals(cedula) && person.getPassword().equals(password)) {
+					return person;
+				}
+			}
+		}
+		return null;
+	}
 	
 	
 }

@@ -55,7 +55,7 @@ public class Menu_Persona extends JFrame {
 	 * Create the frame.
 	 * @param aux 
 	 */
-	public Menu_Persona(String cedula) {
+	public Menu_Persona(Persona son) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 880, 610);
 		setLocationRelativeTo(null);
@@ -101,7 +101,7 @@ public class Menu_Persona extends JFrame {
 		
 		
 		
-		JButton btnNewButton = new JButton("Cerrar Sesión");
+		JButton btnNewButton = new JButton("Cerrar Sesiï¿½n");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PgPrincipal main = new PgPrincipal();
@@ -187,9 +187,9 @@ public class Menu_Persona extends JFrame {
 		lblNomm.setBounds(86, 23, 427, 73);
 		panel.add(lblNomm);
 		
-		
-		if(CrucialWork.getInstance().buscarPersona(cedula) != null) {
-			for(Persona p : CrucialWork.getInstance().getP()) {
+			
+		//if(CrucialWork.getInstance().buscarPersona(cedula) != null) {
+			/*for(Persona p : CrucialWork.getInstance().getP()) {
 				lblNomm.setText(p.getNombre()+" "+p.getApellido());
 				txtCedula.setText(p.getCedula());
 				if(p instanceof Obrer0) {
@@ -197,19 +197,30 @@ public class Menu_Persona extends JFrame {
 				}else if(p instanceof Universitario) {
 					txtProfesion.setText("Universitario");
 				}else if(p instanceof Tecnic0) {
-					txtProfesion.setText("Técnico");
+					txtProfesion.setText("Tecnico");
 				}
 				txtGenero.setText(p.getGenero());
 				txtTelefono.setText(p.getTelefono());
 				txtCodigoZIP.setText(p.getCodigoZ());
 				txtPais.setText(p.getPais());
 				txtEstadoC.setText(p.getEstadoC());
-				
+			}*/
+		//}
 			
-			}
+		lblNomm.setText(son.getNombre()+" "+son.getApellido());
+		txtCedula.setText(son.getCedula());
+		if(son instanceof Obrer0) {
+			txtProfesion.setText("Obrero");
+		}else if(son instanceof Universitario) {
+			txtProfesion.setText("Universitario");
+		}else if(son instanceof Tecnic0) {
+			txtProfesion.setText("Tecnico");
 		}
-			
-			
+		txtGenero.setText(son.getGenero());
+		txtTelefono.setText(son.getTelefono());
+		txtCodigoZIP.setText(son.getCodigoZ());
+		txtPais.setText(son.getPais());
+		txtEstadoC.setText(son.getEstadoC());
 		
 		
 		
@@ -228,7 +239,7 @@ public class Menu_Persona extends JFrame {
 					}else if(q instanceof Universitario) {
 						txtProfesion.setText("Universitario");
 					}else if(q instanceof Tecnic0) {
-						txtProfesion.setText("Técnico");
+						txtProfesion.setText("Tecnico");
 					}
 					txtGenero.setText(q.getGenero());
 					txtTelefono.setText(q.getTelefono());
@@ -236,9 +247,6 @@ public class Menu_Persona extends JFrame {
 					txtPais.setText(q.getPais());
 					txtEstadoC.setText(q.getEstadoC());
 				}
-				//for(Persona q : CrucialWork.getInstance().buscarPersona(txtBuscar.getText())) {
-					
-				//}
 			}
 		});
 		btnBuscar.setBounds(673, 403, 97, 25);
