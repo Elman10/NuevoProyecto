@@ -17,6 +17,9 @@ import Logico.Empresa;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Menu_Empresa extends JFrame {
 
@@ -27,6 +30,9 @@ public class Menu_Empresa extends JFrame {
 	private JTextField txtDireccion;
 	private JTextField txtTelefono;
 	private JTextField txtAreaWork;
+	private JButton btnCerrar;
+	private JButton btnSolicitar;
+	private JButton btnMisSolis;
 
 	/**
 	 * Launch the application.
@@ -47,9 +53,10 @@ public class Menu_Empresa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Menu_Empresa() {
+	public Menu_Empresa(Empresa e) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 813, 519);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -128,7 +135,20 @@ public class Menu_Empresa extends JFrame {
 		txtAreaWork.setBounds(66, 65, 116, 22);
 		AceraDe.add(txtAreaWork);
 		
-		for(Empresa e : CrucialWork.getInstance().getE()) {
+		btnCerrar = new JButton("Cerrar Sesion");
+		btnCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PgPrincipal pg = new PgPrincipal();
+				pg.setVisible(true);
+				dispose();
+			}
+		});
+		btnCerrar.setForeground(Color.WHITE);
+		btnCerrar.setBackground(Color.RED);
+		btnCerrar.setBounds(597, 366, 122, 25);
+		panel.add(btnCerrar);
+		
+		//for(Empresa e : CrucialWork.getInstance().getE()) {
 			txtRNC.setText(e.getRnc_Empresa());
 			txtPais.setText(e.getPais());
 			txtAreaWork.setText(e.getAreaDeTrabajo());
@@ -136,8 +156,28 @@ public class Menu_Empresa extends JFrame {
 			txtTelefono.setText(e.getNumero_Telefono());
 			txtZIP.setText(e.getCodPostal());
        		lblNombre.setText(e.getNombreEmpresa());
+       		
+       		btnSolicitar = new JButton("Solicitar");
+       		btnSolicitar.addActionListener(new ActionListener() {
+       			public void actionPerformed(ActionEvent e) {
+       				Soli_Empresa se = new Soli_Empresa();
+       				se.setVisible(true);
+       			}
+       		});
+       		btnSolicitar.setBounds(340, 366, 104, 25);
+       		panel.add(btnSolicitar);
+       		
+       		btnMisSolis = new JButton("Mis Solicitudes");
+       		btnMisSolis.addActionListener(new ActionListener() {
+       			public void actionPerformed(ActionEvent e) {
+       				MisSolisEmp sde = new MisSolisEmp(txtRNC.getText());
+       				sde.setVisible(true);
+       			}
+       		});
+       		btnMisSolis.setBounds(456, 366, 129, 25);
+       		panel.add(btnMisSolis);
 			
-		}
+		//}
 	}
 
 }

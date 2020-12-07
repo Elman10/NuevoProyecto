@@ -5,19 +5,20 @@ public class SolicitudDeEmpresa {
 	private String id;
 	private Empresa empresa;
 	private String tipo_empleado;
-	private int cantidad;
-	private float salarioMinimo;
-	private boolean estado;	
-	public SolicitudDeEmpresa(String id, String tipo_empleado, int cantidad, float salarioMinimo,
-			boolean estado) {
+	private String cantidad;
+	private String salarioMinimo;
+	private boolean estado;
+	private boolean dispViaje;
+	/*public SolicitudDeEmpresa(String id, String tipo_empleado, String cantidad, String salarioMinimo,
+			boolean estado, Empresa empresa) {
 		super();
 		this.id = id;
-		//this.empresa = empresa;
+		this.empresa = empresa;
 		this.tipo_empleado = tipo_empleado;
 		this.cantidad = cantidad;
 		this.salarioMinimo = salarioMinimo;
 		this.estado = estado;
-	}
+	}*/
 	public String getId() {
 		return id;
 	}
@@ -36,16 +37,16 @@ public class SolicitudDeEmpresa {
 	public void setTipoDeEmpleado(String tipo_empleado) {
 		this.tipo_empleado = tipo_empleado;
 	}
-	public int getCantidad() {
+	public String getCantidad() {
 		return cantidad;
 	}
-	public void setCantidad(int cantidad) {
+	public void setCantidad(String cantidad) {
 		this.cantidad = cantidad;
 	}
-	public float getSalarioMinimo() {
+	public String getSalarioMinimo() {
 		return salarioMinimo;
 	}
-	public void setSalarioMinimo(float salarioMinimo) {
+	public void setSalarioMinimo(String salarioMinimo) {
 		this.salarioMinimo = salarioMinimo;
 	}
 	public boolean isEstado() {
@@ -54,6 +55,24 @@ public class SolicitudDeEmpresa {
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
+	public boolean isDispViaje() {
+		return dispViaje;
+	}
+	public void setDispViaje(boolean dispViaje) {
+		this.dispViaje = dispViaje;
+	}
+	public SolicitudDeEmpresa(String id, Empresa empresa, String tipo_empleado, String cantidad, String salarioMinimo,
+			boolean estado, boolean dispViaje) {
+		super();
+		this.id = id;
+		this.empresa = empresa;
+		this.tipo_empleado = tipo_empleado;
+		this.cantidad = cantidad;
+		this.salarioMinimo = salarioMinimo;
+		this.estado = estado;
+		this.dispViaje = dispViaje;
+	}
+	
 	
 	
 	

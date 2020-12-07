@@ -10,12 +10,14 @@ public class CrucialWork {
 	public static int cont_p = 0;
 	public static int cont_e = 0;
 	private ArrayList<SolicitudEmpleo>se;
+	private ArrayList<SolicitudDeEmpresa>sde;
 	
 	private CrucialWork() {
 		super();
 		this.p = new ArrayList<>();
 		this.e = new ArrayList<>();
 		this.se = new ArrayList<>();
+		this.sde = new ArrayList<>();
 	}
 	
 	public ArrayList<Persona> getP() {
@@ -34,6 +36,14 @@ public class CrucialWork {
 	}
 	
 	
+
+	public ArrayList<SolicitudDeEmpresa> getSde() {
+		return sde;
+	}
+
+	public void setSde(ArrayList<SolicitudDeEmpresa> sde) {
+		this.sde = sde;
+	}
 
 	public ArrayList<SolicitudEmpleo> getSe() {
 		return se;
@@ -63,6 +73,9 @@ public class CrucialWork {
 	public void insertSoli(SolicitudEmpleo soli) {
 		se.add(soli);
 	}
+	public void insertSoliEmpresa(SolicitudDeEmpresa soli) {
+		sde.add(soli);
+	}
 	
 	public Persona buscarPersona(String cedula) {
 		for(Persona person : p) {
@@ -86,10 +99,43 @@ public class CrucialWork {
 		return null;
 	}
 	
+	public Empresa loggin(String RNC, String password) {
+		for(Empresa emp : e) {
+			if(emp !=null) {
+				if(emp.getRnc_Empresa().equals(RNC) && emp.getPassword().equals(password)) {
+					return emp;
+				}
+			}
+		}
+		return null;
+	}
+	
 	public SolicitudEmpleo buscarSolicitud(String cedula) {
 		for(SolicitudEmpleo soli : se) {
 			if(soli != null) {
 				if(soli.getId().equalsIgnoreCase(cedula)) {
+					return soli;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public Empresa buscarEmpresa(String RNC) {
+		for(Empresa emp : e) {
+			if(emp != null) {
+				if(emp.getRnc_Empresa().equalsIgnoreCase(RNC)) {
+					return emp;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public SolicitudDeEmpresa buscarSolicitudE(String RNC) {
+		for(SolicitudDeEmpresa soli : sde) {
+			if(soli != null) {
+				if(soli.getId().equalsIgnoreCase(RNC)) {
 					return soli;
 				}
 			}

@@ -150,6 +150,7 @@ public class Login extends JDialog {
 		JButton btnLogin = new JButton("Iniciar Sesión");
 		btnLogin.addActionListener(new ActionListener() {   // LOGIN COMPLETO, NO TOCAR CHICOS :)
 			public void actionPerformed(ActionEvent e) {
+				if(rdbtnPersona.isSelected()) {
 				if(CrucialWork.getInstance().login(txtCedula.getText(), txtContrasegna.getText()) != null) {
 					Menu_Persona mn = new Menu_Persona(CrucialWork.getInstance().login(txtCedula.getText(), txtContrasegna.getText()));
 					mn.setVisible(true);
@@ -159,6 +160,16 @@ public class Login extends JDialog {
 					JOptionPane.showMessageDialog(null, "Complete todos los campos.", "ERR0R404", JOptionPane.ERROR_MESSAGE);
 				else if(CrucialWork.getInstance().login(txtCedula.getText(), txtContrasegna.getText()) == null)
 					JOptionPane.showMessageDialog(null, "Cédula o Contraseña incorrecta(s) ", "ERR0R404", JOptionPane.ERROR_MESSAGE);
+				}else if(rdbtnEmpresa.isSelected()) {
+					if(CrucialWork.getInstance().loggin(txtRNC.getText(), txtContra.getText()) != null) {
+						Menu_Empresa me = new Menu_Empresa(CrucialWork.getInstance().loggin(txtRNC.getText(),txtContra.getText()));
+						me.setVisible(true);
+						dispose();
+					}else if(txtRNC.getText().isEmpty() && txtContra.getText().isEmpty()) 
+						JOptionPane.showMessageDialog(null, "Complete todos los campos.", "ERR0R404", JOptionPane.ERROR_MESSAGE);
+					else if(CrucialWork.getInstance().loggin(txtRNC.getText(), txtContra.getText()) == null)
+						JOptionPane.showMessageDialog(null, "RNC o Contraseña incorrecta(s) ", "ERR0R404", JOptionPane.ERROR_MESSAGE);
+				}
 				 
 			}
 		});
