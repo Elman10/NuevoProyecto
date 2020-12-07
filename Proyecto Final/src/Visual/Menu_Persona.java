@@ -31,12 +31,12 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
 
 public class Menu_Persona extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtCedula;
-	private JList listHabilidades;
 	private JTextField txtProfesion;
 	private JTextField txtGenero;
 	private JTextField txtTelefono;
@@ -45,7 +45,16 @@ public class Menu_Persona extends JFrame {
 	private JTextField txtCodigoZIP;
 	private JTextField txtEstadoC;
 	private JLabel lblNomm;
-	
+	private JScrollPane scrollPane;
+	private JTextArea txtExp;
+	private JPanel Universitario;
+	private JPanel Tecnico;
+	private JLabel lblUniversidad;
+	private JTextField txtUni;
+	private JTextField txtCarrera;
+	private JPanel Obrero;
+	private JLabel lblExp;
+	private JTextArea txtExpe;
 	/**
 	 * Launch the application.
 	 */
@@ -87,21 +96,9 @@ public class Menu_Persona extends JFrame {
 		lblMiniLogo_1.setBounds(12, 13, 50, 93);
 		panel.add(lblMiniLogo_1);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(198, 378, 223, 106);
-		panel.add(scrollPane);
-		
-		listHabilidades = new JList();
-		scrollPane.setViewportView(listHabilidades);
-		
-		JLabel lblHabilidades = new JLabel("Habilidades:");
-		lblHabilidades.setBounds(198, 357, 78, 16);
-		panel.add(lblHabilidades);
 		
 		
-		
-		JButton btnNewButton = new JButton("Cerrar Sesi�n");
+		JButton btnNewButton = new JButton("Cerrar Sesion");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PgPrincipal main = new PgPrincipal();
@@ -113,7 +110,7 @@ public class Menu_Persona extends JFrame {
 		panel.add(btnNewButton);
 		
 		txtBuscar = new JTextField();
-		txtBuscar.setBounds(545, 405, 116, 22);
+		txtBuscar.setBounds(400, 443, 116, 22);
 		panel.add(txtBuscar);
 		txtBuscar.setColumns(10);
 		
@@ -187,6 +184,71 @@ public class Menu_Persona extends JFrame {
 		lblNomm.setBounds(86, 23, 427, 73);
 		panel.add(lblNomm);
 		
+		Obrero = new JPanel();
+		Obrero.setBorder(new TitledBorder(null, "Obrero", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		Obrero.setBackground(Color.WHITE);
+		Obrero.setBounds(63, 257, 666, 168);
+		panel.add(Obrero);
+		Obrero.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Experiencia Laboral:");
+		lblNewLabel.setBounds(36, 29, 129, 16);
+		Obrero.add(lblNewLabel);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(36, 58, 233, 86);
+		Obrero.add(scrollPane);
+		
+		txtExp = new JTextArea();
+		txtExp.setLineWrap(true);
+		scrollPane.setViewportView(txtExp);
+		
+		Universitario = new JPanel();
+		Universitario.setBorder(new TitledBorder(null, "Universitario", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		Universitario.setBackground(Color.WHITE);
+		Universitario.setBounds(63, 257, 666, 168);
+		panel.add(Universitario);
+		Universitario.setLayout(null);
+		
+		lblUniversidad = new JLabel("Universidad:");
+		lblUniversidad.setBounds(36, 29, 125, 16);
+		Universitario.add(lblUniversidad);
+		
+		txtUni = new JTextField();
+		txtUni.setBackground(Color.WHITE);
+		txtUni.setEditable(false);
+		txtUni.setBounds(36, 62, 150, 22);
+		Universitario.add(txtUni);
+		txtUni.setColumns(10);
+		
+		JLabel lblCarrera = new JLabel("Carrera:");
+		lblCarrera.setBounds(240, 28, 125, 16);
+		Universitario.add(lblCarrera);
+		
+		txtCarrera = new JTextField();
+		txtCarrera.setBounds(240, 62, 250, 22);
+		Universitario.add(txtCarrera);
+		txtCarrera.setColumns(10);
+		
+		Tecnico = new JPanel();
+		Tecnico.setBorder(new TitledBorder(null, "Tecnico", TitledBorder.CENTER, TitledBorder.TOP, null, null));
+		Tecnico.setBackground(Color.WHITE);
+		Tecnico.setBounds(63, 257, 666, 168);
+		panel.add(Tecnico);
+		Tecnico.setLayout(null);
+		
+		lblExp = new JLabel("Experiencia Laboral:");
+		lblExp.setBounds(36, 29, 129, 16);
+		Tecnico.add(lblExp);
+		
+		txtExpe = new JTextArea();
+		txtExpe.setBackground(Color.WHITE);
+		txtExpe.setEditable(false);
+		txtExpe.setLineWrap(true);
+		txtExpe.setBounds(36, 58, 233, 86);
+		Tecnico.add(txtExpe);
+		
 			
 		//if(CrucialWork.getInstance().buscarPersona(cedula) != null) {
 			/*for(Persona p : CrucialWork.getInstance().getP()) {
@@ -211,10 +273,24 @@ public class Menu_Persona extends JFrame {
 		txtCedula.setText(son.getCedula());
 		if(son instanceof Obrer0) {
 			txtProfesion.setText("Obrero");
+			//listHabilidades.setListData(((Obrer0) son).getHabilidades());
+			txtExp.setText(((Obrer0) son).getExperiencia());
+			Universitario.setVisible(false);
+			Obrero.setVisible(true);
+			Tecnico.setVisible(false);
 		}else if(son instanceof Universitario) {
 			txtProfesion.setText("Universitario");
+			txtUni.setText(((Universitario) son).getUniversidad());
+			txtCarrera.setText(((Universitario) son).getCarrera());
+			Universitario.setVisible(true);
+			Obrero.setVisible(false);
+			Tecnico.setVisible(false);
 		}else if(son instanceof Tecnic0) {
 			txtProfesion.setText("Tecnico");
+			txtExpe.setText(((Tecnic0) son).getExperiencia());
+			Universitario.setVisible(false);
+			Obrero.setVisible(false);
+			Tecnico.setVisible(true);
 		}
 		txtGenero.setText(son.getGenero());
 		txtTelefono.setText(son.getTelefono());
@@ -249,8 +325,12 @@ public class Menu_Persona extends JFrame {
 				}
 			}
 		});
-		btnBuscar.setBounds(673, 403, 97, 25);
+		btnBuscar.setBounds(528, 441, 97, 25);
 		panel.add(btnBuscar);
+		
+		
+		
+		
 		
 		
 		
