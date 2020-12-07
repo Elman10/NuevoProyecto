@@ -13,6 +13,7 @@ import java.awt.Color;
 import javax.swing.border.TitledBorder;
 
 import Logico.CrucialWork;
+import Logico.Persona;
 import Logico.SolicitudEmpleo;
 
 import java.awt.Font;
@@ -49,6 +50,7 @@ public class Soli_Persona extends JDialog {
 	public Soli_Persona() {
 		setUndecorated(true);
 		setBounds(100, 100, 576, 455);
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -119,10 +121,14 @@ public class Soli_Persona extends JDialog {
 		JButton btnSolicitar = new JButton("Solicitar");
 		btnSolicitar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				SolicitudEmpleo se = null;
 				if(chckbxSi.isSelected()) {
-				SolicitudEmpleo se = new SolicitudEmpleo(txtCedula.getText(),txtSalario.getText(),false,true,CrucialWork.getInstance().buscarPersona(txtCedula.getText()));
-				soliemp.add(se);
+				 se = new SolicitudEmpleo(txtCedula.getText(),txtSalario.getText(),false,true,CrucialWork.getInstance().buscarPersona(txtCedula.getText()));
+				}else if(chckbxNo.isSelected()) {
+						se = new SolicitudEmpleo(txtCedula.getText(),txtSalario.getText(),false,false,CrucialWork.getInstance().buscarPersona(txtCedula.getText()));
 				}
+				CrucialWork.getInstance().insertSoli(se);
+				dispose();
 			}
 		});
 		/*

@@ -30,6 +30,7 @@ import javax.swing.border.TitledBorder;
 import Logico.CrucialWork;
 import Logico.Obrer0;
 import Logico.Persona;
+import Logico.SolicitudEmpleo;
 import Logico.Tecnic0;
 import Logico.Universitario;
 
@@ -312,7 +313,7 @@ public class Data_Clientes extends JDialog {
 						if(rdbtnTecnico.isSelected()) {
 							person = new Tecnic0(txtNombre.getText(),txtApellido.getText(),txtCedula.getText(),cbxPais.getSelectedItem().toString(),
 									txtTelefono.getText(),cbxEstadoC.getSelectedItem().toString(),txtCodigoZIP.getText(),cbxGenero.getSelectedItem().toString(),
-									txtCedula.getText(),aux,txtArea.getText());
+									txtCedula.getText(), aux,txtArea.getText());
 						}
 						CrucialWork.getInstance().insertPerson(person);
 						Menu_Persona main = new Menu_Persona(person);

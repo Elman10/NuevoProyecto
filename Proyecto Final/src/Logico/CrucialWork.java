@@ -60,6 +60,9 @@ public class CrucialWork {
 	public boolean eliminarEmpresa(Empresa empresa) {
 		return e.remove(empresa);
 	}
+	public void insertSoli(SolicitudEmpleo soli) {
+		se.add(soli);
+	}
 	
 	public Persona buscarPersona(String cedula) {
 		for(Persona person : p) {
@@ -77,6 +80,17 @@ public class CrucialWork {
 			if(person != null) {
 				if(person.getCedula().equals(cedula) && person.getPassword().equals(password)) {
 					return person;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public SolicitudEmpleo buscarSolicitud(String cedula) {
+		for(SolicitudEmpleo soli : se) {
+			if(soli != null) {
+				if(soli.getId().equalsIgnoreCase(cedula)) {
+					return soli;
 				}
 			}
 		}

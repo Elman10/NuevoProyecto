@@ -55,6 +55,7 @@ public class Menu_Persona extends JFrame {
 	private JPanel Obrero;
 	private JLabel lblExp;
 	private JTextArea txtExpe;
+	private JButton btnSolicitud;
 	/**
 	 * Launch the application.
 	 */
@@ -99,6 +100,8 @@ public class Menu_Persona extends JFrame {
 		
 		
 		JButton btnNewButton = new JButton("Cerrar Sesion");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(Color.RED);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PgPrincipal main = new PgPrincipal();
@@ -327,6 +330,26 @@ public class Menu_Persona extends JFrame {
 		});
 		btnBuscar.setBounds(528, 441, 97, 25);
 		panel.add(btnBuscar);
+		
+		JButton btnMisSolis = new JButton("Mis Solicitudes");
+		btnMisSolis.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MisSolicitudes ms = new MisSolicitudes(txtCedula.getText());
+				ms.setVisible(true);
+			}
+		});
+		btnMisSolis.setBounds(263, 441, 131, 25);
+		panel.add(btnMisSolis);
+		
+		btnSolicitud = new JButton("Solicitar");
+		btnSolicitud.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Soli_Persona sp = new Soli_Persona();
+				sp.setVisible(true);
+;			}
+		});
+		btnSolicitud.setBounds(158, 441, 97, 25);
+		panel.add(btnSolicitud);
 		
 		
 		
