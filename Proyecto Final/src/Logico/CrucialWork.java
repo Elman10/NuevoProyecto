@@ -14,6 +14,7 @@ public class CrucialWork {
 	private ArrayList<SolicitudEmpleo>se;
 	private ArrayList<SolicitudDeEmpresa>sde;
 	private ArrayList<CorreoPersona>correo;
+	private ArrayList<CorreoEmpresa>correoE;
 	
 	private CrucialWork() {
 		super();
@@ -22,6 +23,7 @@ public class CrucialWork {
 		this.se = new ArrayList<>();
 		this.sde = new ArrayList<>();
 		this.correo = new ArrayList<>();
+		this.correoE = new ArrayList<>();
 	}
 	
 	
@@ -50,8 +52,6 @@ public class CrucialWork {
 		this.e = e;
 	}
 	
-	
-
 	public ArrayList<SolicitudDeEmpresa> getSde() {
 		return sde;
 	}
@@ -68,10 +68,19 @@ public class CrucialWork {
 		this.se = se;
 	}
 
+	public ArrayList<CorreoEmpresa> getCorreoE() {
+		return correoE;
+	}
+
+
+	public void setCorreoE(ArrayList<CorreoEmpresa> correoE) {
+		this.correoE = correoE;
+	}
+
+
 	public static CrucialWork getInstance(){
 			return c;
 	}
-	
 	
 	public void insertPerson(Persona persona) {
 		p.add(persona);
@@ -93,6 +102,9 @@ public class CrucialWork {
 	}
 	public void insertarCorreo(CorreoPersona c) {
 		correo.add(c);
+	}
+	public void insertarCorreoE(CorreoEmpresa ce) {
+		correoE.add(ce);
 	}
 	
 	public Persona buscarPersona(String cedula) {
@@ -167,6 +179,16 @@ public class CrucialWork {
 				if(ce.getCedula().equalsIgnoreCase(cedula)) {
 					return ce;
 				}
+			}
+		}
+		return null;
+	}
+	
+	public CorreoEmpresa buscarCorreoE(String RNC) {
+		for(CorreoEmpresa ce : correoE) {
+			if(ce != null) {
+				if(ce.getRnc().equalsIgnoreCase(RNC));
+				return ce;
 			}
 		}
 		return null;

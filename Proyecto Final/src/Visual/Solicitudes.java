@@ -160,6 +160,7 @@ public class Solicitudes extends JDialog {
 		panel.setLayout(null);
 		
 		txtRNC = new JTextField();
+		txtRNC.setBackground(Color.WHITE);
 		txtRNC.setEditable(false);
 		txtRNC.setText(RNC);
 		txtRNC.setBounds(12, 28, 128, 22);

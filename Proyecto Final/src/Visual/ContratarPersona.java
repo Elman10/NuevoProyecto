@@ -312,6 +312,7 @@ public class ContratarPersona extends JDialog {
 		panel.add(btnCancelar);
 		
 		txtRNC = new JTextField();
+		txtRNC.setVisible(false);
 		txtRNC.setEditable(false);
 		txtRNC.setText(RNC);
 		txtRNC.setBounds(86, 448, 116, 22);
