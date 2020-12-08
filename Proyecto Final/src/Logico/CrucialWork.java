@@ -26,7 +26,7 @@ public class CrucialWork {
 	public static int uni = 0;
 	public static int tec = 0;
 	/*
-	 * Grafico pastel donde se vea el porcentaje de mujeres u hombres empleados.
+	 * Grafico pastel donde se vea el porcentaje en funcion del sexo(Hombre, mujer)
 	 */
 	public static int hombre = 0;
 	public static int mujer = 0;
