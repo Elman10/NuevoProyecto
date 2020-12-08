@@ -30,6 +30,7 @@ import Logico.Obrer0;
 import Logico.Persona;
 import Logico.Tecnic0;
 import Logico.Universitario;
+import java.awt.Toolkit;
 
 public class ContratarPersona extends JDialog {
 
@@ -73,6 +74,7 @@ public class ContratarPersona extends JDialog {
 	 * Create the dialog.
 	 */
 	public ContratarPersona(Persona son, String RNC) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ContratarPersona.class.getResource("/Img/MiniLogo.png")));
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 880, 610);
 		setLocationRelativeTo(null);
@@ -217,6 +219,7 @@ public class ContratarPersona extends JDialog {
 		Universitario.add(lblCarrera);
 		
 		txtCarrera = new JTextField();
+		txtCarrera.setBackground(Color.WHITE);
 		txtCarrera.setEditable(false);
 		txtCarrera.setBounds(240, 62, 250, 22);
 		Universitario.add(txtCarrera);

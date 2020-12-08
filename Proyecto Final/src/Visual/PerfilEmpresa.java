@@ -22,6 +22,7 @@ import javax.swing.border.TitledBorder;
 import Logico.CorreoEmpresa;
 import Logico.CrucialWork;
 import Logico.Empresa;
+import java.awt.Toolkit;
 
 public class PerfilEmpresa extends JDialog {
 
@@ -52,6 +53,7 @@ public class PerfilEmpresa extends JDialog {
 	 * Create the dialog.
 	 */
 	public PerfilEmpresa(Empresa e, String cedula) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(PerfilEmpresa.class.getResource("/Img/MiniLogo.png")));
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 813, 519);
 		setLocationRelativeTo(null);

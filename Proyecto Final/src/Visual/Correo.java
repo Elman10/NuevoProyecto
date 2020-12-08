@@ -28,6 +28,7 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class Correo extends JDialog {
 
@@ -35,7 +36,7 @@ public class Correo extends JDialog {
 	private JTable tbCorreo;
 	public static DefaultTableModel modelo;
 	public static Object[] fila;
-	private JLabel lblNombre;
+	private JLabel lblNommbre;
 
 	/**
 	 * Launch the application.
@@ -54,6 +55,7 @@ public class Correo extends JDialog {
 	 * Create the dialog.
 	 */
 	public Correo(String cedula) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Correo.class.getResource("/Img/MiniLogo.png")));
 		setBounds(100, 100, 706, 581);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);
@@ -73,10 +75,22 @@ public class Correo extends JDialog {
 			contentPanel.add(Buscar);
 			Buscar.setLayout(null);
 			{
-				lblNombre = new JLabel("");
-				lblNombre.setFont(new Font("Tahoma", Font.BOLD, 24));
-				lblNombre.setBounds(12, 13, 366, 56);
-				Buscar.add(lblNombre);
+				JLabel lblNewLabel_1 = new JLabel("BANDEJA DE ENTRADA:");
+				lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 30));
+				lblNewLabel_1.setBounds(12, 23, 366, 46);
+				Buscar.add(lblNewLabel_1);
+			}
+			{
+				ArrayList<Persona> aux = new ArrayList<Persona>();
+				aux.add(CrucialWork.getInstance().buscarPersona(cedula));
+				lblNommbre = new JLabel("New label");
+				lblNommbre.setFont(new Font("Tahoma", Font.BOLD, 20));
+				for(Persona p : aux) {
+					lblNommbre.setText(p.getNombre()+" "+p.getApellido());
+				}
+				
+				lblNommbre.setBounds(389, 23, 265, 46);
+				Buscar.add(lblNommbre);
 			}
 		}
 		{
@@ -94,6 +108,7 @@ public class Correo extends JDialog {
 		}
 		{
 			JButton btnAceptar = new JButton("Aceptar");
+			btnAceptar.setBackground(Color.WHITE);
 			btnAceptar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					SolicitudEmpleo se = null;
@@ -118,6 +133,8 @@ public class Correo extends JDialog {
 		}
 		{
 			JButton btnCancelar = new JButton("Cancelar");
+			btnCancelar.setForeground(Color.WHITE);
+			btnCancelar.setBackground(Color.RED);
 			btnCancelar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					SolicitudEmpleo se = null;

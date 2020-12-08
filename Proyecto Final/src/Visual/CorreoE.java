@@ -24,6 +24,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Toolkit;
 
 public class CorreoE extends JDialog {
 
@@ -31,6 +33,7 @@ public class CorreoE extends JDialog {
 	private JTable tbSolis;
 	public static DefaultTableModel modelo;
 	public static Object[] fila;
+	private JLabel lblNombre;
 
 	/**
 	 * Launch the application.
@@ -49,6 +52,7 @@ public class CorreoE extends JDialog {
 	 * Create the dialog.
 	 */
 	public CorreoE(String RNC) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CorreoE.class.getResource("/Img/MiniLogo.png")));
 		setBounds(100, 100, 706, 581);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);
@@ -95,6 +99,16 @@ public class CorreoE extends JDialog {
 		});
 		btnCancelar.setBounds(568, 496, 97, 25);
 		contentPanel.add(btnCancelar);
+		
+		JLabel lblNewLabel_1 = new JLabel("BANDEJA DE ENTRADA:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 26));
+		lblNewLabel_1.setBounds(41, 65, 319, 40);
+		contentPanel.add(lblNewLabel_1);
+		
+		lblNombre = new JLabel("BANDEJA DE ENTRADA:");
+		lblNombre.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNombre.setBounds(369, 65, 296, 40);
+		contentPanel.add(lblNombre);
 		
 		
 		CargarTabla(RNC);

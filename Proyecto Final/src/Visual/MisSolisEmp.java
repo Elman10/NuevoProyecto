@@ -21,6 +21,7 @@ import Logico.SolicitudDeEmpresa;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JTable;
+import java.awt.Toolkit;
 
 public class MisSolisEmp extends JDialog {
 
@@ -51,6 +52,7 @@ public class MisSolisEmp extends JDialog {
 	 * Create the dialog.
 	 */
 	public MisSolisEmp(String RNC) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MisSolisEmp.class.getResource("/Img/MiniLogo.png")));
 		setBounds(100, 100, 786, 559);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);

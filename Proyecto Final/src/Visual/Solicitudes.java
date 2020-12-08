@@ -31,6 +31,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Toolkit;
 
 public class Solicitudes extends JDialog {
 
@@ -60,6 +61,7 @@ public class Solicitudes extends JDialog {
 	 * Create the dialog.
 	 */
 	public Solicitudes(String RNC) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Solicitudes.class.getResource("/Img/MiniLogo.png")));
 		setBounds(100, 100, 786, 602);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());

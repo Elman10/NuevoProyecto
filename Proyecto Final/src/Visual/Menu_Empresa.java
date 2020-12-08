@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class Menu_Empresa extends JFrame {
 
@@ -56,6 +57,7 @@ public class Menu_Empresa extends JFrame {
 	 * Create the frame.
 	 */
 	public Menu_Empresa(Empresa e) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Menu_Empresa.class.getResource("/Img/MiniLogo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 813, 519);
 		setLocationRelativeTo(null);

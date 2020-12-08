@@ -32,6 +32,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import java.awt.Toolkit;
 
 public class Menu_Persona extends JFrame {
 
@@ -66,6 +67,7 @@ public class Menu_Persona extends JFrame {
 	 * @param aux 
 	 */
 	public Menu_Persona(Persona son) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Menu_Persona.class.getResource("/Img/MiniLogo.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 880, 610);
 		setLocationRelativeTo(null);

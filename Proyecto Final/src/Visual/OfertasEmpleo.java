@@ -32,6 +32,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.UIManager;
 import javax.swing.JTextField;
+import java.awt.Toolkit;
 
 public class OfertasEmpleo extends JDialog {
 
@@ -61,6 +62,7 @@ public class OfertasEmpleo extends JDialog {
 	 * Create the dialog.
 	 */
 	public OfertasEmpleo(String cedula) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(OfertasEmpleo.class.getResource("/Img/MiniLogo.png")));
 		setBounds(100, 100, 786, 602);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());

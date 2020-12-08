@@ -23,6 +23,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Toolkit;
 
 public class MisSolicitudes extends JDialog {
 
@@ -60,6 +61,7 @@ public class MisSolicitudes extends JDialog {
 	 * Create the dialog.
 	 */
 	public MisSolicitudes(String cedula) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MisSolicitudes.class.getResource("/Img/MiniLogo.png")));
 		setBounds(100, 100, 714, 507);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
