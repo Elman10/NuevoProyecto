@@ -85,7 +85,7 @@ public class Menu_Empresa extends JFrame {
 		JLabel lblNombre = new JLabel("New label");
 		lblNombre.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNombre.setFont(new Font("Tahoma", Font.BOLD, 44));
-		lblNombre.setBounds(254, 28, 454, 64);
+		lblNombre.setBounds(28, 28, 680, 64);
 		panel.add(lblNombre);
 		
 		JPanel AceraDe = new JPanel();
@@ -163,7 +163,7 @@ public class Menu_Empresa extends JFrame {
        		btnSolicitar.setBackground(Color.WHITE);
        		btnSolicitar.addActionListener(new ActionListener() {
        			public void actionPerformed(ActionEvent e) {
-       				Soli_Empresa se = new Soli_Empresa();
+       				Soli_Empresa se = new Soli_Empresa(txtRNC.getText());
        				se.setVisible(true);
        			}
        		});

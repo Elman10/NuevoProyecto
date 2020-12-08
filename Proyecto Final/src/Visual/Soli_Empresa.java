@@ -49,7 +49,7 @@ public class Soli_Empresa extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public Soli_Empresa() {
+	public Soli_Empresa(String RNC) {
 		setUndecorated(true);
 		setBounds(100, 100, 623, 470);
 		setLocationRelativeTo(null);
@@ -90,6 +90,9 @@ public class Soli_Empresa extends JDialog {
 			}
 			{
 				txtRNC = new JTextField();
+				txtRNC.setText(RNC);
+				txtRNC.setBackground(Color.WHITE);
+				txtRNC.setEditable(false);
 				txtRNC.setBounds(198, 63, 174, 22);
 				panel.add(txtRNC);
 				txtRNC.setColumns(10);

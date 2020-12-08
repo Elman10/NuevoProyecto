@@ -179,7 +179,7 @@ public class Menu_Persona extends JFrame {
 		
 		lblNomm = new JLabel("New label");
 		lblNomm.setFont(new Font("Tahoma", Font.BOLD, 42));
-		lblNomm.setBounds(86, 23, 427, 73);
+		lblNomm.setBounds(86, 23, 678, 73);
 		panel.add(lblNomm);
 		
 		Obrero = new JPanel();
