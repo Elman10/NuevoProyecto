@@ -20,13 +20,13 @@ public class CrucialWork {
 	 * Contadores para revisar los gráficos...
 	 */
 	/*
-	 * Grafico de barras donde se vea la cantidad de solicitudes satisfechas dependiendo del tipo de empleado. (obrero, universitario, tecnico)
+	 * Grafico de barra donde se vea la cantidad de solicitudes satisfechas dependiendo del tipo de empleado. (obrero, universitario, tecnico)
 	 */
 	public static int ob = 0;
 	public static int uni = 0;
 	public static int tec = 0;
 	/*
-	 * Grafico pastel donde se vea el porcentaje en funcion del sexo(Hombre, mujer)
+	 * Grafico de pastel donde se vea el porcentaje en funcion del sexo(Hombre, mujer)
 	 */
 	public static int hombre = 0;
 	public static int mujer = 0;
