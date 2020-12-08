@@ -116,10 +116,23 @@ public class Correo extends JDialog {
 					se.setEstado(true);
 					if(se.getPersona() instanceof Obrer0) {
 						CrucialWork.ob++;
-						System.out.println("Sumando ob.."+CrucialWork.ob);
-					}else if(se.getPersona() instanceof Universitario) { CrucialWork.uni++; System.out.println("Sumando uni.."+CrucialWork.uni);}
-					else if(se.getPersona() instanceof Tecnic0) { CrucialWork.tec++; System.out.println("Sumando tec.. Cant: "+CrucialWork.tec);}
+						//System.out.println("Sumando ob.."+CrucialWork.ob);
+					}else if(se.getPersona() instanceof Universitario) { CrucialWork.uni++; 
+					//System.out.println("Sumando uni.."+CrucialWork.uni);
+					}
+					else if(se.getPersona() instanceof Tecnic0) { CrucialWork.tec++; 
+					//System.out.println("Sumando tec.. Cant: "+CrucialWork.tec);
+					}
 					
+					/*ArrayList<Persona> aux = new ArrayList<Persona>();
+					aux.add(CrucialWork.getInstance().buscarPersona(cedula));
+					for(Persona p : aux) {
+						if(p != null) {
+							if(p.getGenero().equalsIgnoreCase("Hombre")){
+								
+							}
+						}
+					}*/
 					/*if(se.getPersona().getGenero().equalsIgnoreCase("Hombre")) { CrucialWork.hombre++; System.out.println("Sumando hombre.. Cant: "+CrucialWork.hombre);}
 					else if(se.getPersona().getGenero().equalsIgnoreCase("Mujer")) {CrucialWork.mujer++; System.out.println("Sumando mujer.. Cant: "+CrucialWork.mujer);}
 					else System.out.println("ERROR404");*/

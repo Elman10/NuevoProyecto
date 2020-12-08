@@ -177,7 +177,7 @@ public class Data_Clientes extends JDialog {
 				Recoger_Datos_Panel.add(lblGnero);
 				
 				cbxGenero = new JComboBox();
-				cbxGenero.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Hombre ", "Mujer"}));
+				cbxGenero.setModel(new DefaultComboBoxModel(new String[] {"<Seleccione>", "Hombre", "Mujer"}));
 				cbxGenero.setBounds(115, 154, 148, 22);
 				Recoger_Datos_Panel.add(cbxGenero);
 				
