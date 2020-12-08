@@ -170,6 +170,7 @@ public class MisSolicitudes extends JDialog {
 				}else fila[4] = "Pendiente";
 				modelo.addRow(fila);
 			}
+			
 		}
 		
 	}

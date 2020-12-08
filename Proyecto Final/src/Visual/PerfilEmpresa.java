@@ -12,12 +12,15 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
+import Logico.CorreoEmpresa;
+import Logico.CrucialWork;
 import Logico.Empresa;
 
 public class PerfilEmpresa extends JDialog {
@@ -48,8 +51,8 @@ public class PerfilEmpresa extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public PerfilEmpresa(Empresa e) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public PerfilEmpresa(Empresa e, String cedula) {
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 813, 519);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -57,6 +60,7 @@ public class PerfilEmpresa extends JDialog {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Menu_Empresa.class.getResource("/Img/BarraVertical.png")));
@@ -153,7 +157,9 @@ public class PerfilEmpresa extends JDialog {
        		btnCV = new JButton("Enviar CV");
        		btnCV.addActionListener(new ActionListener() {
        			public void actionPerformed(ActionEvent e) {
-       				
+       				CorreoEmpresa aux = new CorreoEmpresa(txtRNC.getText(),CrucialWork.getInstance().buscarPersona(cedula));
+       				CrucialWork.getInstance().insertarCorreoE(aux);
+       				JOptionPane.showMessageDialog(null, "Oferta enviada", "Oferta de Trabajo", JOptionPane.WARNING_MESSAGE);
        			}
        		});
        		btnCV.setBounds(456, 366, 129, 25);

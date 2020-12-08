@@ -34,6 +34,7 @@ public class Menu_Empresa extends JFrame {
 	private JButton btnSolicitar;
 	private JButton btnMisSolis;
 	private JButton btnOfertas;
+	private JButton btnBuzon;
 
 	/**
 	 * Launch the application.
@@ -159,6 +160,7 @@ public class Menu_Empresa extends JFrame {
        		lblNombre.setText(e.getNombreEmpresa());
        		
        		btnSolicitar = new JButton("Solicitar");
+       		btnSolicitar.setBackground(Color.WHITE);
        		btnSolicitar.addActionListener(new ActionListener() {
        			public void actionPerformed(ActionEvent e) {
        				Soli_Empresa se = new Soli_Empresa();
@@ -169,6 +171,7 @@ public class Menu_Empresa extends JFrame {
        		panel.add(btnSolicitar);
        		
        		btnMisSolis = new JButton("Mis Solicitudes");
+       		btnMisSolis.setBackground(Color.WHITE);
        		btnMisSolis.addActionListener(new ActionListener() {
        			public void actionPerformed(ActionEvent e) {
        				MisSolisEmp sde = new MisSolisEmp(txtRNC.getText());
@@ -179,6 +182,7 @@ public class Menu_Empresa extends JFrame {
        		panel.add(btnMisSolis);
        		
        		btnOfertas = new JButton("Buscar Ofertas");
+       		btnOfertas.setBackground(Color.WHITE);
        		btnOfertas.addActionListener(new ActionListener() {
        			public void actionPerformed(ActionEvent e) {
        				Solicitudes ss = new Solicitudes(txtRNC.getText());
@@ -187,6 +191,17 @@ public class Menu_Empresa extends JFrame {
        		});
        		btnOfertas.setBounds(12, 366, 122, 25);
        		panel.add(btnOfertas);
+       		
+       		btnBuzon = new JButton("Buzon");
+       		btnBuzon.addActionListener(new ActionListener() {
+       			public void actionPerformed(ActionEvent e) {
+       				CorreoE c = new CorreoE(txtRNC.getText());
+       				c.setVisible(true);
+       			}
+       		});
+       		btnBuzon.setBackground(Color.WHITE);
+       		btnBuzon.setBounds(12, 335, 122, 25);
+       		panel.add(btnBuzon);
 			
 		//}
 	}

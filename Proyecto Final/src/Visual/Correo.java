@@ -93,8 +93,8 @@ public class Correo extends JDialog {
 			JButton btnAceptar = new JButton("Aceptar");
 			btnAceptar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					CrucialWork.getInstance().buscarSolicitud(cedula);
 					SolicitudEmpleo se = null;
+					se = CrucialWork.getInstance().buscarSolicitud(cedula);
 					se.setEstado(true);
 				}
 			});
@@ -105,9 +105,10 @@ public class Correo extends JDialog {
 			JButton btnCancelar = new JButton("Cancelar");
 			btnCancelar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					CrucialWork.getInstance().buscarSolicitud(cedula);
 					SolicitudEmpleo se = null;
+					se = CrucialWork.getInstance().buscarSolicitud(cedula);
 					se.setEstado(false);
+					dispose();
 				}
 			});
 			btnCancelar.setBounds(546, 489, 97, 25);
@@ -127,8 +128,10 @@ public class Correo extends JDialog {
 			if(cp != null) {
 				fila[0] = cp.getEmpresa().getRnc_Empresa();
 				fila[1] = cp.getEmpresa().getNombreEmpresa();
+				
+				modelo.addRow(fila);
 			}
-			modelo.addRow(fila);
+			
 		}
 		
 	}

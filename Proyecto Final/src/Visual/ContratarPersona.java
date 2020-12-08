@@ -217,6 +217,7 @@ public class ContratarPersona extends JDialog {
 		Universitario.add(lblCarrera);
 		
 		txtCarrera = new JTextField();
+		txtCarrera.setEditable(false);
 		txtCarrera.setBounds(240, 62, 250, 22);
 		Universitario.add(txtCarrera);
 		txtCarrera.setColumns(10);

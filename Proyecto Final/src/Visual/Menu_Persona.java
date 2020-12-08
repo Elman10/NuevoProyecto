@@ -40,7 +40,6 @@ public class Menu_Persona extends JFrame {
 	private JTextField txtProfesion;
 	private JTextField txtGenero;
 	private JTextField txtTelefono;
-	private JTextField txtBuscar;
 	private JTextField txtPais;
 	private JTextField txtCodigoZIP;
 	private JTextField txtEstadoC;
@@ -112,11 +111,6 @@ public class Menu_Persona extends JFrame {
 		});
 		btnNewButton.setBounds(633, 441, 131, 25);
 		panel.add(btnNewButton);
-		
-		txtBuscar = new JTextField();
-		txtBuscar.setBounds(400, 443, 116, 22);
-		panel.add(txtBuscar);
-		txtBuscar.setColumns(10);
 		
 		
 		
@@ -231,6 +225,7 @@ public class Menu_Persona extends JFrame {
 		Universitario.add(lblCarrera);
 		
 		txtCarrera = new JTextField();
+		txtCarrera.setEditable(false);
 		txtCarrera.setBounds(240, 62, 250, 22);
 		Universitario.add(txtCarrera);
 		txtCarrera.setColumns(10);
@@ -302,54 +297,26 @@ public class Menu_Persona extends JFrame {
 		txtPais.setText(son.getPais());
 		txtEstadoC.setText(son.getEstadoC());
 		
-		
-		
-		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				ArrayList<Persona> person = new ArrayList<Persona>();
-				person.add(CrucialWork.getInstance().buscarPersona(txtBuscar.getText()));
-				
-				for(Persona q : person) {
-					lblNomm.setText(q.getNombre()+" "+q.getApellido());
-					txtCedula.setText(q.getCedula());
-					if(q instanceof Obrer0) {
-						txtProfesion.setText("Obrero");
-					}else if(q instanceof Universitario) {
-						txtProfesion.setText("Universitario");
-					}else if(q instanceof Tecnic0) {
-						txtProfesion.setText("Tecnico");
-					}
-					txtGenero.setText(q.getGenero());
-					txtTelefono.setText(q.getTelefono());
-					txtCodigoZIP.setText(q.getCodigoZ());
-					txtPais.setText(q.getPais());
-					txtEstadoC.setText(q.getEstadoC());
-				}
-			}
-		});
-		btnBuscar.setBounds(528, 441, 97, 25);
-		panel.add(btnBuscar);
-		
 		JButton btnMisSolis = new JButton("Mis Solicitudes");
+		btnMisSolis.setBackground(Color.WHITE);
 		btnMisSolis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MisSolicitudes ms = new MisSolicitudes(txtCedula.getText());
 				ms.setVisible(true);
 			}
 		});
-		btnMisSolis.setBounds(263, 441, 131, 25);
+		btnMisSolis.setBounds(490, 441, 131, 25);
 		panel.add(btnMisSolis);
 		
 		btnSolicitud = new JButton("Solicitar");
+		btnSolicitud.setBackground(Color.WHITE);
 		btnSolicitud.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Soli_Persona sp = new Soli_Persona(txtCedula.getText());
 				sp.setVisible(true);
 ;			}
 		});
-		btnSolicitud.setBounds(158, 441, 97, 25);
+		btnSolicitud.setBounds(385, 441, 97, 25);
 		panel.add(btnSolicitud);
 		
 		btnCorreo = new JButton("Buzon ");
@@ -363,6 +330,17 @@ public class Menu_Persona extends JFrame {
 		btnCorreo.setBackground(Color.WHITE);
 		btnCorreo.setBounds(12, 441, 97, 25);
 		panel.add(btnCorreo);
+		
+		JButton btnOfertas = new JButton("Ofertas");
+		btnOfertas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				OfertasEmpleo oe = new OfertasEmpleo(txtCedula.getText());
+				oe.setVisible(true);
+			}
+		});
+		btnOfertas.setBackground(Color.WHITE);
+		btnOfertas.setBounds(116, 441, 97, 25);
+		panel.add(btnOfertas);
 		
 		
 		
