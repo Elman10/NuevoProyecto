@@ -14,6 +14,7 @@ import Logico.CorreoPersona;
 import Logico.CrucialWork;
 import Logico.Empresa;
 import Logico.Persona;
+import Logico.SolicitudEmpleo;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -21,14 +22,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Correo extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTable tbCorreo;
-	private JTextField textField;
 	public static DefaultTableModel modelo;
 	public static Object[] fila;
+	private JLabel lblNombre;
 
 	/**
 	 * Launch the application.
@@ -66,19 +70,11 @@ public class Correo extends JDialog {
 			contentPanel.add(Buscar);
 			Buscar.setLayout(null);
 			{
-				JLabel lblCorreo = new JLabel("Buscar bandeja por cedula:");
-				lblCorreo.setBounds(12, 13, 170, 16);
-				Buscar.add(lblCorreo);
+				lblNombre = new JLabel("");
+				lblNombre.setFont(new Font("Tahoma", Font.BOLD, 24));
+				lblNombre.setBounds(12, 13, 366, 56);
+				Buscar.add(lblNombre);
 			}
-			
-			textField = new JTextField();
-			textField.setBounds(193, 10, 116, 22);
-			Buscar.add(textField);
-			textField.setColumns(10);
-			
-			JButton btnNewButton = new JButton("Buscar");
-			btnNewButton.setBounds(321, 9, 97, 25);
-			Buscar.add(btnNewButton);
 		}
 		{
 			JScrollPane scrollPane = new JScrollPane();
@@ -95,15 +91,31 @@ public class Correo extends JDialog {
 		}
 		{
 			JButton btnAceptar = new JButton("Aceptar");
+			btnAceptar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					CrucialWork.getInstance().buscarSolicitud(cedula);
+					SolicitudEmpleo se = null;
+					se.setEstado(true);
+				}
+			});
 			btnAceptar.setBounds(437, 489, 97, 25);
 			contentPanel.add(btnAceptar);
 		}
 		{
 			JButton btnCancelar = new JButton("Cancelar");
+			btnCancelar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					CrucialWork.getInstance().buscarSolicitud(cedula);
+					SolicitudEmpleo se = null;
+					se.setEstado(false);
+				}
+			});
 			btnCancelar.setBounds(546, 489, 97, 25);
 			contentPanel.add(btnCancelar);
 		}
 		CargarTabla(cedula);
+		
+		
 	}
 
 	private void CargarTabla(String cedula) {
