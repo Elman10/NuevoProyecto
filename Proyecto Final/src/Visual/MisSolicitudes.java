@@ -38,6 +38,8 @@ public class MisSolicitudes extends JDialog {
 	private JLabel lblTelefono_1;
 	public static DefaultTableModel modelo;
 	public static Object[] fila;
+	
+	
 	private ArrayList<SolicitudEmpleo>soli = new ArrayList<SolicitudEmpleo>();
 	
 
@@ -133,30 +135,44 @@ public class MisSolicitudes extends JDialog {
 		DatosP.add(lblTelefono_1);
 		
 		modelo = new DefaultTableModel();
-		String[] columns = {"Cedula","Salario Minimo","Disp. Viaje","Estado de la Solicitud"};
+		String[] columns = {"Cedula","Tipo","Salario Minimo","Disp. Viaje","Estado de la Solicitud"};
 		modelo.setColumnIdentifiers(columns);
 		tbSolis = new JTable();
 		scrollPane.setViewportView(tbSolis);
 		tbSolis.setModel(modelo);
 		
-		CargarTabla(cedula);
-	}
+		for(SolicitudEmpleo sol : CrucialWork.getInstance().getSe()) {
+			if(sol != null) {
+				if(CrucialWork.getInstance().buscarSolicitud(cedula) != null) {
+					soli.add(CrucialWork.getInstance().buscarSolicitud(cedula));
+					}
+				}
+			}
+		 CargarTabla(soli);
+		}
+		
 
-
-	private void CargarTabla(String cedula) {
+	private void CargarTabla(ArrayList<SolicitudEmpleo> soli) {
 		modelo.setRowCount(0);
 		fila = new Object[modelo.getColumnCount()];
-		soli.add(CrucialWork.getInstance().buscarSolicitud(cedula));
+		
 		for(SolicitudEmpleo e : soli) {
 			if(e != null) {
 				fila[0] = e.getId();
-				fila[1] = e.getSalarioMinimo();
+				fila[2] = e.getSalarioMinimo();
+				if(e.getPersona() instanceof Obrer0) {
+					fila[1] = "Obrero";
+				}else if(e.getPersona() instanceof Universitario) {
+					fila[1] = "Universitario";
+				}else if(e.getPersona() instanceof Tecnic0) {
+					fila[1] = "Tecnico";
+				}
 				if(e.isDispViaje() != false) {
-					fila[2] = "Sí";
-				}else fila[2] = "No";
+					fila[3] = "Sí";
+				}else fila[3] = "No";
 				if(e.isEstado() != false) {
-					fila[3] = "Aceptado";
-				}else fila[3] = "Pendiente";
+					fila[4] = "Aceptado";
+				}else fila[4] = "Pendiente";
 				modelo.addRow(fila);
 			}
 		}

@@ -12,6 +12,7 @@ public class SolicitudEmpleo {
 	
 	
 	
+	
 	public SolicitudEmpleo(String cedula, String salarioMinimo, boolean estado, boolean dispViaje, Persona persona) {
 		super();
 		this.cedula = cedula;

@@ -1,46 +1,43 @@
 package Visual;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.SwingConstants;
 import java.awt.Color;
-import javax.swing.JLabel;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
+import Logico.CorreoPersona;
 import Logico.CrucialWork;
 import Logico.Obrer0;
 import Logico.Persona;
 import Logico.Tecnic0;
 import Logico.Universitario;
 
-import javax.swing.UIManager;
-import javax.swing.JTextField;
-import java.awt.Font;
-import java.util.ArrayList;
-
-import javax.swing.JList;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-
-public class Menu_Persona extends JFrame {
+public class ContratarPersona extends JDialog {
 
 	private JPanel contentPane;
 	private JTextField txtCedula;
 	private JTextField txtProfesion;
 	private JTextField txtGenero;
 	private JTextField txtTelefono;
-	private JTextField txtBuscar;
 	private JTextField txtPais;
 	private JTextField txtCodigoZIP;
 	private JTextField txtEstadoC;
@@ -55,19 +52,28 @@ public class Menu_Persona extends JFrame {
 	private JPanel Obrero;
 	private JLabel lblExp;
 	private JTextArea txtExpe;
-	private JButton btnSolicitud;
-	private JButton btnCorreo;
+	private JButton btnContratar;
+	private JButton btnCancelar;
+	private JTextField txtRNC;
+
 	/**
 	 * Launch the application.
 	 */
-	
+	/*public static void main(String[] args) {
+		try {
+			ContratarPersona dialog = new ContratarPersona();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
-	 * Create the frame.
-	 * @param aux 
+	 * Create the dialog.
 	 */
-	public Menu_Persona(Persona son) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public ContratarPersona(Persona son, String RNC) {
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 880, 610);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -97,26 +103,6 @@ public class Menu_Persona extends JFrame {
 		lblMiniLogo_1.setIcon(new ImageIcon(Menu_Persona.class.getResource("/Img/MiniLogo.png")));
 		lblMiniLogo_1.setBounds(12, 13, 50, 93);
 		panel.add(lblMiniLogo_1);
-		
-		
-		
-		JButton btnNewButton = new JButton("Cerrar Sesion");
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBackground(Color.RED);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				PgPrincipal main = new PgPrincipal();
-				main.setVisible(true);
-				dispose();
-			}
-		});
-		btnNewButton.setBounds(633, 441, 131, 25);
-		panel.add(btnNewButton);
-		
-		txtBuscar = new JTextField();
-		txtBuscar.setBounds(400, 443, 116, 22);
-		panel.add(txtBuscar);
-		txtBuscar.setColumns(10);
 		
 		
 		
@@ -302,75 +288,35 @@ public class Menu_Persona extends JFrame {
 		txtPais.setText(son.getPais());
 		txtEstadoC.setText(son.getEstadoC());
 		
-		
-		
-		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				ArrayList<Persona> person = new ArrayList<Persona>();
-				person.add(CrucialWork.getInstance().buscarPersona(txtBuscar.getText()));
-				
-				for(Persona q : person) {
-					lblNomm.setText(q.getNombre()+" "+q.getApellido());
-					txtCedula.setText(q.getCedula());
-					if(q instanceof Obrer0) {
-						txtProfesion.setText("Obrero");
-					}else if(q instanceof Universitario) {
-						txtProfesion.setText("Universitario");
-					}else if(q instanceof Tecnic0) {
-						txtProfesion.setText("Tecnico");
-					}
-					txtGenero.setText(q.getGenero());
-					txtTelefono.setText(q.getTelefono());
-					txtCodigoZIP.setText(q.getCodigoZ());
-					txtPais.setText(q.getPais());
-					txtEstadoC.setText(q.getEstadoC());
-				}
-			}
-		});
-		btnBuscar.setBounds(528, 441, 97, 25);
-		panel.add(btnBuscar);
-		
-		JButton btnMisSolis = new JButton("Mis Solicitudes");
-		btnMisSolis.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				MisSolicitudes ms = new MisSolicitudes(txtCedula.getText());
-				ms.setVisible(true);
-			}
-		});
-		btnMisSolis.setBounds(263, 441, 131, 25);
-		panel.add(btnMisSolis);
-		
-		btnSolicitud = new JButton("Solicitar");
-		btnSolicitud.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Soli_Persona sp = new Soli_Persona();
-				sp.setVisible(true);
-;			}
-		});
-		btnSolicitud.setBounds(158, 441, 97, 25);
-		panel.add(btnSolicitud);
-		
-		btnCorreo = new JButton("Buzon ");
-		btnCorreo.addActionListener(new ActionListener() {
+		btnContratar = new JButton("Contratar");
+		btnContratar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Correo c = new Correo(txtCedula.getText());
-				c.setVisible(true);
+				CorreoPersona aux = new CorreoPersona(CrucialWork.getInstance().buscarEmpresa(RNC),txtCedula.getText());
+				CrucialWork.getInstance().insertarCorreo(aux);
+				JOptionPane.showMessageDialog(null, "Oferta enviada", "Oferta de Trabajo", JOptionPane.WARNING_MESSAGE);
 				
 			}
 		});
-		btnCorreo.setBackground(Color.WHITE);
-		btnCorreo.setBounds(12, 441, 97, 25);
-		panel.add(btnCorreo);
+		btnContratar.setBounds(558, 447, 97, 25);
+		panel.add(btnContratar);
 		
+		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnCancelar.setForeground(Color.WHITE);
+		btnCancelar.setBackground(Color.RED);
+		btnCancelar.setBounds(667, 447, 97, 25);
+		panel.add(btnCancelar);
 		
-		
-		
-		
-		
-		
-		
-		
+		txtRNC = new JTextField();
+		txtRNC.setEditable(false);
+		txtRNC.setText(RNC);
+		txtRNC.setBounds(86, 448, 116, 22);
+		panel.add(txtRNC);
+		txtRNC.setColumns(10);
 	}
+
 }

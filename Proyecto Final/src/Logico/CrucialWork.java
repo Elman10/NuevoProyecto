@@ -2,6 +2,8 @@ package Logico;
 
 import java.util.ArrayList;
 
+import Visual.Correo;
+
 public class CrucialWork {
 	
 	private ArrayList<Persona>p;
@@ -11,6 +13,7 @@ public class CrucialWork {
 	public static int cont_e = 0;
 	private ArrayList<SolicitudEmpleo>se;
 	private ArrayList<SolicitudDeEmpresa>sde;
+	private ArrayList<CorreoPersona>correo;
 	
 	private CrucialWork() {
 		super();
@@ -18,8 +21,20 @@ public class CrucialWork {
 		this.e = new ArrayList<>();
 		this.se = new ArrayList<>();
 		this.sde = new ArrayList<>();
+		this.correo = new ArrayList<>();
 	}
 	
+	
+	public ArrayList<CorreoPersona> getCorreo() {
+		return correo;
+	}
+
+
+	public void setCorreo(ArrayList<CorreoPersona> correo) {
+		this.correo = correo;
+	}
+
+
 	public ArrayList<Persona> getP() {
 		return p;
 	}
@@ -75,6 +90,9 @@ public class CrucialWork {
 	}
 	public void insertSoliEmpresa(SolicitudDeEmpresa soli) {
 		sde.add(soli);
+	}
+	public void insertarCorreo(CorreoPersona c) {
+		correo.add(c);
 	}
 	
 	public Persona buscarPersona(String cedula) {
@@ -137,6 +155,17 @@ public class CrucialWork {
 			if(soli != null) {
 				if(soli.getId().equalsIgnoreCase(RNC)) {
 					return soli;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public CorreoPersona buscarCorreo(String cedula) {
+		for(CorreoPersona ce : correo) {
+			if(ce != null) {
+				if(ce.getCedula().equalsIgnoreCase(cedula)) {
+					return ce;
 				}
 			}
 		}

@@ -33,6 +33,7 @@ public class Menu_Empresa extends JFrame {
 	private JButton btnCerrar;
 	private JButton btnSolicitar;
 	private JButton btnMisSolis;
+	private JButton btnOfertas;
 
 	/**
 	 * Launch the application.
@@ -176,6 +177,16 @@ public class Menu_Empresa extends JFrame {
        		});
        		btnMisSolis.setBounds(456, 366, 129, 25);
        		panel.add(btnMisSolis);
+       		
+       		btnOfertas = new JButton("Buscar Ofertas");
+       		btnOfertas.addActionListener(new ActionListener() {
+       			public void actionPerformed(ActionEvent e) {
+       				Solicitudes ss = new Solicitudes(txtRNC.getText());
+       				ss.setVisible(true);
+       			}
+       		});
+       		btnOfertas.setBounds(12, 366, 122, 25);
+       		panel.add(btnOfertas);
 			
 		//}
 	}
