@@ -40,7 +40,7 @@ public class MisSolicitudes extends JDialog {
 	public static Object[] fila;
 	
 	
-	private ArrayList<SolicitudEmpleo>soli = new ArrayList<SolicitudEmpleo>();
+	//private ArrayList<SolicitudEmpleo>soli = new ArrayList<SolicitudEmpleo>();
 	
 
 	/**
@@ -141,21 +141,16 @@ public class MisSolicitudes extends JDialog {
 		scrollPane.setViewportView(tbSolis);
 		tbSolis.setModel(modelo);
 		
-		for(SolicitudEmpleo sol : CrucialWork.getInstance().getSe()) {
-			if(sol != null) {
-				if(CrucialWork.getInstance().buscarSolicitud(cedula) != null) {
-					soli.add(CrucialWork.getInstance().buscarSolicitud(cedula));
-					}
-				}
-			}
-		 CargarTabla(soli);
+		
+		 CargarTabla(cedula);
 		}
 		
 
-	private void CargarTabla(ArrayList<SolicitudEmpleo> soli) {
+	private void CargarTabla(String cedula) {
+		ArrayList<SolicitudEmpleo>soli = new ArrayList<SolicitudEmpleo>();
 		modelo.setRowCount(0);
 		fila = new Object[modelo.getColumnCount()];
-		
+		soli.add(CrucialWork.getInstance().buscarSolicitud(cedula));
 		for(SolicitudEmpleo e : soli) {
 			if(e != null) {
 				fila[0] = e.getId();

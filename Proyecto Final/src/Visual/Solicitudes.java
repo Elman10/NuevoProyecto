@@ -28,6 +28,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Solicitudes extends JDialog {
 
@@ -37,6 +40,8 @@ public class Solicitudes extends JDialog {
 	public static Object[] fila;
 	private ArrayList<SolicitudEmpleo> aux = new ArrayList<SolicitudEmpleo>();
 	private JTextField txtRNC;
+	private JButton btnPerfil;
+	private String temp;
 
 	/**
 	 * Launch the application.
@@ -121,14 +126,26 @@ public class Solicitudes extends JDialog {
 		String[] columns = {"Cedula","Tipo","Salario Minimo","Disp. Viaje","Estado de la Solicitud"};
 		modelo.setColumnIdentifiers(columns);
 		tbOfertas = new JTable();
+		tbOfertas.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				int seleccion = tbOfertas.getSelectedRow();
+				if(seleccion != -1) {
+					btnPerfil.setEnabled(true);
+					temp = (String) modelo.getValueAt(seleccion, 0);
+				}else btnPerfil.setEnabled(false);
+			}
+		});
+		tbOfertas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tbOfertas.setBackground(Color.WHITE);
 		scrollPane.setViewportView(tbOfertas);
 		tbOfertas.setModel(modelo);
 		
-		JButton btnPerfil = new JButton("Ver Perfil");
+		btnPerfil = new JButton("Ver Perfil");
+		btnPerfil.setEnabled(false);
 		btnPerfil.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ContratarPersona mn = new ContratarPersona(CrucialWork.getInstance().buscarPersona(fila[0].toString()),RNC);
+				ContratarPersona mn = new ContratarPersona(CrucialWork.getInstance().buscarPersona(temp),RNC);
 				mn.setVisible(true);
 			}
 		});

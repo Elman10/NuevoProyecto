@@ -47,7 +47,7 @@ public class Soli_Persona extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public Soli_Persona() {
+	public Soli_Persona(String cedula) {
 		setUndecorated(true);
 		setBounds(100, 100, 576, 455);
 		setLocationRelativeTo(null);
@@ -87,6 +87,9 @@ public class Soli_Persona extends JDialog {
 		panel.add(lblCedula);
 		
 		txtCedula = new JTextField();
+		txtCedula.setText(cedula);
+		txtCedula.setBackground(Color.WHITE);
+		txtCedula.setEditable(false);
 		txtCedula.setBounds(194, 77, 135, 27);
 		panel.add(txtCedula);
 		txtCedula.setColumns(10);
@@ -140,6 +143,11 @@ public class Soli_Persona extends JDialog {
 		panel.add(btnSolicitar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
 		btnCancelar.setBackground(SystemColor.inactiveCaptionBorder);
 		btnCancelar.setBounds(377, 351, 97, 25);
 		panel.add(btnCancelar);

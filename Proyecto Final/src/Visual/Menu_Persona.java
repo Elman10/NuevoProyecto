@@ -345,7 +345,7 @@ public class Menu_Persona extends JFrame {
 		btnSolicitud = new JButton("Solicitar");
 		btnSolicitud.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Soli_Persona sp = new Soli_Persona();
+				Soli_Persona sp = new Soli_Persona(txtCedula.getText());
 				sp.setVisible(true);
 ;			}
 		});

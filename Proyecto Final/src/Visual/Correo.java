@@ -122,8 +122,8 @@ public class Correo extends JDialog {
 		ArrayList<CorreoPersona>aux = new ArrayList<CorreoPersona>();
 		modelo.setRowCount(0);
 		fila = new Object[modelo.getColumnCount()];
-		//aux.add(CrucialWork.getInstance().buscarCorreo(cedula));
-		for(CorreoPersona cp : CrucialWork.getInstance().getCorreo()) {
+		aux.add(CrucialWork.getInstance().buscarCorreo(cedula));
+		for(CorreoPersona cp : aux) {
 			if(cp != null) {
 				fila[0] = cp.getEmpresa().getRnc_Empresa();
 				fila[1] = cp.getEmpresa().getNombreEmpresa();
