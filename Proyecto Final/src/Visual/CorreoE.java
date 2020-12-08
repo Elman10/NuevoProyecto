@@ -79,6 +79,7 @@ public class CorreoE extends JDialog {
 				SolicitudDeEmpresa se = null;
 				se = CrucialWork.getInstance().buscarSolicitudE(RNC);
 				se.setEstado(true);
+				
 			}
 		});
 		btnAceptar.setBounds(459, 496, 97, 25);

@@ -13,8 +13,11 @@ import javax.swing.table.DefaultTableModel;
 import Logico.CorreoPersona;
 import Logico.CrucialWork;
 import Logico.Empresa;
+import Logico.Obrer0;
 import Logico.Persona;
 import Logico.SolicitudEmpleo;
+import Logico.Tecnic0;
+import Logico.Universitario;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -82,7 +85,7 @@ public class Correo extends JDialog {
 			contentPanel.add(scrollPane);
 			{
 				modelo = new DefaultTableModel();
-				String[] columns = {"RNC","Preferencia"};
+				String[] columns = {"RNC","Nombre","Preferencia"};
 				modelo.setColumnIdentifiers(columns);
 				tbCorreo = new JTable();
 				scrollPane.setViewportView(tbCorreo);
@@ -96,6 +99,18 @@ public class Correo extends JDialog {
 					SolicitudEmpleo se = null;
 					se = CrucialWork.getInstance().buscarSolicitud(cedula);
 					se.setEstado(true);
+					if(se.getPersona() instanceof Obrer0) {
+						CrucialWork.ob++;
+						System.out.println("Sumando ob.."+CrucialWork.ob);
+					}else if(se.getPersona() instanceof Universitario) { CrucialWork.uni++; System.out.println("Sumando uni.."+CrucialWork.uni);}
+					else if(se.getPersona() instanceof Tecnic0) { CrucialWork.tec++; System.out.println("Sumando tec.. Cant: "+CrucialWork.tec);}
+					
+					/*if(se.getPersona().getGenero().equalsIgnoreCase("Hombre")) { CrucialWork.hombre++; System.out.println("Sumando hombre.. Cant: "+CrucialWork.hombre);}
+					else if(se.getPersona().getGenero().equalsIgnoreCase("Mujer")) {CrucialWork.mujer++; System.out.println("Sumando mujer.. Cant: "+CrucialWork.mujer);}
+					else System.out.println("ERROR404");*/
+					
+					
+					
 				}
 			});
 			btnAceptar.setBounds(437, 489, 97, 25);
@@ -128,6 +143,7 @@ public class Correo extends JDialog {
 			if(cp != null) {
 				fila[0] = cp.getEmpresa().getRnc_Empresa();
 				fila[1] = cp.getEmpresa().getNombreEmpresa();
+				fila[2] = cp.getEmpresa().getAreaDeTrabajo();
 				
 				modelo.addRow(fila);
 			}

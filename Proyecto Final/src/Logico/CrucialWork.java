@@ -16,6 +16,23 @@ public class CrucialWork {
 	private ArrayList<CorreoPersona>correo;
 	private ArrayList<CorreoEmpresa>correoE;
 	
+	/*
+	 * Contadores para los gráficos...
+	 */
+	/*
+	 * Grafico de barras donde se vea la cantidad de solicitudes satisfechas dependiendo del tipo de empleado. (obrero, universitario, tecnico)
+	 */
+	public static int ob = 0;
+	public static int uni = 0;
+	public static int tec = 0;
+	/*
+	 * Grafico pastel donde se vea el porcentaje de mujeres u hombres empleados.
+	 */
+	public static int hombre = 0;
+	public static int mujer = 0;
+	/*
+	 * 
+	 */
 	private CrucialWork() {
 		super();
 		this.p = new ArrayList<>();
