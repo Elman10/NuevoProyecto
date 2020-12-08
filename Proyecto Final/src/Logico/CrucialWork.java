@@ -17,7 +17,7 @@ public class CrucialWork {
 	private ArrayList<CorreoEmpresa>correoE;
 	
 	/*
-	 * Contadores para los gráficos...
+	 * Contadores para revisar los gráficos...
 	 */
 	/*
 	 * Grafico de barras donde se vea la cantidad de solicitudes satisfechas dependiendo del tipo de empleado. (obrero, universitario, tecnico)
